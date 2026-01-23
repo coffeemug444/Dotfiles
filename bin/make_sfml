@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+set -e
+set -u
+set -o pipefail
+
+
+if [ $# -eq 0 ]; then
+   tempe
+else
+   mkcd $1
+fi
+
+rsync -a ~/Templates/empty_sfml/ .
+rsync -a ~/Templates/.clang-tidy .
+rsync -a ~/Templates/.clang-format .
+git init
+git add -A
+git commit -m "Initial commit"
+code .
+exit

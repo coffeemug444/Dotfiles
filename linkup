@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+set -e
+set -u
+set -o pipefail
+
+
+echo "⚠️ WARNING: Running this script will override the following dotfiles:"
+echo "   ~/.zshrc"
+echo "   ~/.config/nvim/init.vim"
+read -p "Type 'y' to continue: " confirm
+
+if [[ "$confirm" != "y" ]]; then
+  echo "Aborted."
+  exit 1
+fi
+
+dotdir=$HOME/.dotfiles
+cd $dotdir
+
+# scripts
+bindir=$HOME/.local/bin
+mkdir -p $bindir
+ln -sf $dotdir/bin/* $bindir
+
+# zsh
+ln -sf $dotdir/.zshrc $HOME
+touch $HOME/.zshrc_local
+
+# c++ templates
+mkdir -p $HOME/Templates
+rm -rf $HOME/Templates/empty_cpp
+rm -rf $HOME/Templates/empty_sfml
+ln -s $dotdir/Templates/empty_cpp $HOME/Templates
+ln -s $dotdir/Templates/empty_sfml $HOME/Templates
+ln -sf $dotdir/Templates/.clang-format $HOME/Templates
+ln -sf $dotdir/Templates/.clang-tidy $HOME/Templates
+
+
+echo ""
+echo "All done! You may want to run:"
+echo " $ source $HOME/.zshrc"
+
+cd - > /dev/null
