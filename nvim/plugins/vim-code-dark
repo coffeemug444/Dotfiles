@@ -1,0 +1,6 @@
+Plug 'tomasiser/vim-code-dark'
+
+augroup codedarkOverrides
+   autocmd!
+   autocmd User PlugLoaded ++nested colorscheme codedark
+augroup end

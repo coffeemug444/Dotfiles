@@ -17,8 +17,14 @@ export EDITOR=nvim
 
 export PATH=$PATH:$HOME/.local/bin
 
-# all pc-local configs should go here
-source $HOME/.zshrc_local
+# cd's to yazi directory when exiting yazi
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	command yazi "$@" --cwd-file="$tmp"
+	IFS= read -r -d '' cwd < "$tmp"
+	[ "$cwd" != "$PWD" ] && [ -d "$cwd" ] && builtin cd -- "$cwd"
+	rm -f -- "$tmp"
+}
 
 mkcd () {
   \mkdir -p "$1"
@@ -34,3 +40,11 @@ tempe () {
     chmod -R 0700 .
   fi
 }
+
+alias vim=nvim
+alias vi=nvim
+
+# all pc-local configs should go here
+# source last to override base config
+source $HOME/.zshrc_local
+

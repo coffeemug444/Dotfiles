@@ -1,0 +1,11 @@
+" Dependencies
+" Required
+Plug 'nvim-lua/plenary.nvim'
+
+" Suggested
+Plug 'nvim-telescope/telescope-fzf-native.nvim'
+
+" Optional
+Plug 'nvim-tree/nvim-web-devicons'
+
+Plug 'nvim-telescope/telescope.nvim'

@@ -4,6 +4,9 @@ set -u
 set -o pipefail
 
 
+echo "Ensure you have the following dependencies installed:"
+echo "kitty nvim fd ripgrep"
+echo ""
 echo "⚠️ WARNING: Running this script will override the following dotfiles:"
 echo "   ~/.zshrc"
 echo "   ~/.config/nvim/init.vim"
@@ -25,21 +28,22 @@ mkdir -p $bindir
 ln -sf $dotdir/bin/* $bindir
 
 # zsh
-ln -sf $dotdir/.zshrc $HOME
+ln -sf $dotdir/zsh/.zshrc $HOME
 touch $HOME/.zshrc_local
 
 # kitty
 kittydir=$HOME/.config/kitty
 mkdir -p $kittydir
-ln -sf $dotdir/kitty.conf $kittydir
+ln -sf $dotdir/kitty/kitty.conf $kittydir
 kittytheme=https://raw.githubusercontent.com/dexpota/kitty-themes/master/themes/DotGov.conf
 wget -N "$kittytheme" -P "$kittydir"
 
 # neovim
 nvimdir=$HOME/.config/nvim
 mkdir -p $nvimdir
-ln -sf $dotdir/init.vim $nvimdir
-
+ln -sf $dotdir/nvim/init.vim $nvimdir
+ln -sf $dotdir/nvim/plugins $nvimdir/pluginsources
+nvim +'PlugInstall --sync' +qa
 
 # c++ templates
 mkdir -p $HOME/Templates
