@@ -7,6 +7,7 @@ set -o pipefail
 echo "⚠️ WARNING: Running this script will override the following dotfiles:"
 echo "   ~/.zshrc"
 echo "   ~/.config/nvim/init.vim"
+echo "   ~/.config/kitty/kitty.conf"
 read -p "Type 'y' to continue: " confirm
 
 if [[ "$confirm" != "y" ]]; then
@@ -25,6 +26,14 @@ ln -sf $dotdir/bin/* $bindir
 # zsh
 ln -sf $dotdir/.zshrc $HOME
 touch $HOME/.zshrc_local
+
+# kitty
+kittydir=$HOME/.config/kitty
+mkdir -p $kittydir
+ln -sf $dotdir/kitty.conf $kittydir
+kittytheme=https://raw.githubusercontent.com/dexpota/kitty-themes/master/themes/DotGov.conf
+wget -N "$kittytheme" -P "$kittydir"
+
 
 # c++ templates
 mkdir -p $HOME/Templates
