@@ -8,6 +8,7 @@ echo "⚠️ WARNING: Running this script will override the following dotfiles:"
 echo "   ~/.zshrc"
 echo "   ~/.config/nvim/init.vim"
 echo "   ~/.config/kitty/kitty.conf"
+echo "   ~/.config/nvim/init.vim"
 read -p "Type 'y' to continue: " confirm
 
 if [[ "$confirm" != "y" ]]; then
@@ -33,6 +34,11 @@ mkdir -p $kittydir
 ln -sf $dotdir/kitty.conf $kittydir
 kittytheme=https://raw.githubusercontent.com/dexpota/kitty-themes/master/themes/DotGov.conf
 wget -N "$kittytheme" -P "$kittydir"
+
+# neovim
+nvimdir=$HOME/.config/nvim
+mkdir -p $nvimdir
+ln -sf $dotdir/init.vim $nvimdir
 
 
 # c++ templates
