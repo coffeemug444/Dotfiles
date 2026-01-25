@@ -2,4 +2,7 @@
 .clang-tidy
 .vscode
 .cache
+.compile_commonds.json
 build
+Debug/
+Release/
