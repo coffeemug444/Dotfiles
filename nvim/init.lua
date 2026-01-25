@@ -61,7 +61,7 @@ local plugin_files = {
   "plugins.blink",
   "plugins.vimbegood",
   "plugins.gitsigns",
-  "plugins.noice",
+--  "plugins.noice",
   "plugins.cmake",
 }
 
@@ -92,5 +92,3 @@ vim.diagnostic.config({
     severity_sort = true,
 })
 
-
-require("telescope").load_extension("noice")
