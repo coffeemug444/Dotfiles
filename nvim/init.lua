@@ -62,6 +62,7 @@ local plugin_files = {
   "plugins.vimbegood",
   "plugins.gitsigns",
   "plugins.noice",
+  "plugins.cmake",
 }
 
 local plugins = {}
@@ -77,6 +78,9 @@ require("lazy").setup(plugins)
 vim.keymap.set('n', '<leader>p', ':Telescope find_files<CR>', opts)
 vim.keymap.set('n', '<leader><BS>', ':Yazi<CR>', opts)
 vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, {desc = "Code Action"})
+vim.keymap.set('n', '<leader>cmg', ':CMakeGenerate<CR>', opts)
+vim.keymap.set('n', '<leader>cmb', ':CMakeBuild<CR>', opts)
+vim.keymap.set('n', '<leader>cmr', ':CMakeRun', opts)
 
 
 -- Some lsp linting stuff

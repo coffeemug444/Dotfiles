@@ -42,7 +42,6 @@ copy_template() {
    git add -A
    git commit -m "Initial commit"
    mkdir -p build
-   (cd build && cmake ..) > build/cmake.log 2>&1 &
    $EDITOR ./src/main.cpp
 }
 
