@@ -37,6 +37,7 @@ copy_template() {
    rsync -a $1/* .
    cp ~/Templates/.clang-tidy .
    cp ~/Templates/.clang-format .
+   cp ~/Templates/.gitignore .
    git init
    git add -A
    git commit -m "Initial commit"
@@ -52,3 +53,9 @@ make_new() {
 make_sfml() {
    copy_template ~/Templates/empty_sfml "$@"
 }
+
+dots() {
+   cd ~/.dotfiles
+   $EDITOR
+}
+

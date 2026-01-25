@@ -59,6 +59,8 @@ local plugin_files = {
   "plugins.fugitive",
   "plugins.lsp",
   "plugins.blink",
+  "plugins.vimbegood",
+  "plugins.gitsigns",
 }
 
 local plugins = {}
@@ -71,5 +73,16 @@ require("lazy").setup(plugins)
 --=============================
 -- Plugin-specific mappings
 --=============================
-map('n', '<leader>p', ':Telescope find_files<CR>', opts)
-map('n', '<leader><BS>', ':Yazi<CR>', opts)
+vim.keymap.set('n', '<leader>p', ':Telescope find_files<CR>', opts)
+vim.keymap.set('n', '<leader><BS>', ':Yazi<CR>', opts)
+vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, {desc = "Code Action"})
+
+
+vim.diagnostic.config({
+    virtual_text = true,  -- shows messages inline
+    signs = true,         -- keeps W/E in the sign column
+    underline = true,     -- underlines problematic code
+    update_in_insert = false,
+    severity_sort = true,
+})
+

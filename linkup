@@ -56,6 +56,7 @@ ln -s $dotdir/Templates/empty_cpp $HOME/Templates
 ln -s $dotdir/Templates/empty_sfml $HOME/Templates
 ln -sf $dotdir/Templates/.clang-format $HOME/Templates
 ln -sf $dotdir/Templates/.clang-tidy $HOME/Templates
+ln -sf $dotdir/Templates/.gitignore $HOME/Templates
 
 
 echo ""
