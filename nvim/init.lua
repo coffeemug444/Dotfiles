@@ -77,7 +77,7 @@ require("lazy").setup(plugins)
 --=============================
 -- Plugin-specific mappings
 --=============================
-vim.keymap.set('n', '<leader>p', ':Telescope find_files<CR>', opts)
+vim.keymap.set('n', '<C-f>', ':Telescope find_files<CR>', opts)
 vim.keymap.set('n', '<leader><BS>', ':Yazi<CR>', opts)
 vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, {desc = "Code Action"})
 vim.keymap.set('n', '<leader>cmg', ':CMakeGenerate<CR>', opts)
