@@ -3,16 +3,9 @@ cmake_minimum_required(VERSION 3.10)
 project(main)
 
 set (CMAKE_CXX_STANDARD 23)
+set (CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 include(FetchContent)
-FetchContent_Declare(
-    SFML
-    GIT_REPOSITORY https://github.com/SFML/SFML.git
-    GIT_TAG 3.0.0
-    GIT_SHALLOW ON
-    EXCLUDE_FROM_ALL
-    SYSTEM
-)
 
 FetchContent_Declare(
     fmt
@@ -28,6 +21,15 @@ FetchContent_Declare(
     GIT_TAG        0.12.0
     GIT_SHALLOW ON
     EXCLUDE_FROM_ALL
+)
+
+FetchContent_Declare(
+    SFML
+    GIT_REPOSITORY https://github.com/SFML/SFML.git
+    GIT_TAG 3.0.0
+    GIT_SHALLOW ON
+    EXCLUDE_FROM_ALL
+    SYSTEM
 )
 
 FetchContent_MakeAvailable(SFML fmt range-v3)

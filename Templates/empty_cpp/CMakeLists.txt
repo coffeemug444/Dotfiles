@@ -3,6 +3,9 @@ cmake_minimum_required(VERSION 3.10)
 project(main)
 
 set (CMAKE_CXX_STANDARD 23)
+set (CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
+include(FetchContent)
 
 FetchContent_Declare(
     fmt
@@ -20,17 +23,15 @@ FetchContent_Declare(
     EXCLUDE_FROM_ALL
 )
 
-FetchContent_MakeAvailable(SFML fmt range-v3)
+FetchContent_MakeAvailable(fmt range-v3)
 
 add_compile_options(-Werror -Wall -Wextra -Wpedantic -pg)
 
 add_executable(main src/main.cpp)
 
-target_link_libraries(main PRIVATE mt::fmt range-v3)
+target_link_libraries(main PRIVATE fmt::fmt range-v3)
 
 add_compile_options(-Wall -Wextra -Wpedantic -fsanitize=undefined -pg) # not using -Werror for hacking around stuff
 add_link_options(-fsanitize=undefined)  # Add sanitizers to the linker stage
-
-add_executable(main src/main.cpp)
 
 

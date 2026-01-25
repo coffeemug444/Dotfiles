@@ -9,7 +9,7 @@ echo "kitty nvim fd ripgrep"
 echo ""
 echo "⚠️ WARNING: Running this script will override the following dotfiles:"
 echo "   ~/.zshrc"
-echo "   ~/.config/nvim/init.vim"
+echo "   ~/.config/nvim/init.lua"
 echo "   ~/.config/kitty/kitty.conf"
 echo "   ~/.config/nvim/init.vim"
 read -p "Type 'y' to continue: " confirm
@@ -28,8 +28,11 @@ mkdir -p $bindir
 ln -sf $dotdir/bin/* $bindir
 
 # zsh
+zshdir=$HOME/.config/zsh
 ln -sf $dotdir/zsh/.zshrc $HOME
 touch $HOME/.zshrc_local
+mkdir -p $zshdir
+ln -sf $dotdir/zsh/aliases.zsh $zshdir
 
 # kitty
 kittydir=$HOME/.config/kitty
@@ -41,8 +44,8 @@ wget -N "$kittytheme" -P "$kittydir"
 # neovim
 nvimdir=$HOME/.config/nvim
 mkdir -p $nvimdir
-ln -sf $dotdir/nvim/init.vim $nvimdir
-ln -sf $dotdir/nvim/plugins $nvimdir/pluginsources
+rm -f $nvimdir/init.vim # get rid of any other configs
+ln -sf $dotdir/nvim/* $nvimdir
 nvim +'PlugInstall --sync' +qa
 
 # c++ templates
