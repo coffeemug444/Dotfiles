@@ -61,6 +61,7 @@ local plugin_files = {
   "plugins.blink",
   "plugins.vimbegood",
   "plugins.gitsigns",
+  "plugins.noice",
 }
 
 local plugins = {}
@@ -78,6 +79,7 @@ vim.keymap.set('n', '<leader><BS>', ':Yazi<CR>', opts)
 vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, {desc = "Code Action"})
 
 
+-- Some lsp linting stuff
 vim.diagnostic.config({
     virtual_text = true,  -- shows messages inline
     signs = true,         -- keeps W/E in the sign column
@@ -86,3 +88,5 @@ vim.diagnostic.config({
     severity_sort = true,
 })
 
+
+require("telescope").load_extension("noice")
