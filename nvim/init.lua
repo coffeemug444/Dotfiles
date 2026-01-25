@@ -34,6 +34,7 @@ map('n', '<leader>ke', ':edit ~/.config/kitty/kitty.conf<CR>', opts)
 map('n', '<leader>ze', ':edit ~/.zshrc<CR>', opts)
 map('n', '<C-d>', '<C-d>zz', opts)
 map('n', '<C-u>', '<C-u>zz', opts)
+map('x', '<leader>p', '"_dP', opts)
 
 --=============================
 -- Plugins
