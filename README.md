@@ -8,7 +8,7 @@ These are my dotfiles. It's a setup for:
 
 
 # Usage
-Make sure you have the following dependencies installed: `kitty nvim fd ripgrep clangd`
+Make sure you have the following dependencies installed: `kitty nvim fd ripgrep clangd yazi`
 
 Then continue with the following:
 1. Clone this repo to ~/.dotfiles
