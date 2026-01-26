@@ -23,19 +23,6 @@ opt.clipboard = "unnamedplus"
 --=============================
 vim.g.mapleader = " "
 
---=============================
--- Key mappings
---=============================
-local map = vim.api.nvim_set_keymap
-local opts = { noremap = true, silent = true }
-
-vim.keymap.set('n', '<leader>ve', ':edit ~/.config/nvim/init.lua<CR>', opts)
-vim.keymap.set('n', '<leader>ke', ':edit ~/.config/kitty/kitty.conf<CR>', opts)
-vim.keymap.set('n', '<leader>ze', ':edit ~/.zshrc<CR>', opts)
-vim.keymap.set('n', '<C-d>', '<C-d>zz', opts)
-vim.keymap.set('n', '<C-u>', '<C-u>zz', opts)
-vim.keymap.set('x', '<leader>p', '"_dP', opts)
-vim.keymap.set('n', '<leader>cdh', ':cd %:h<CR>', opts)
 
 --=============================
 -- Plugins
@@ -78,12 +65,29 @@ end
 
 require("lazy").setup(plugins)
 
+
 --=============================
+-- Key mappings
+--=============================
+
+local map = vim.api.nvim_set_keymap
+local opts = { noremap = true, silent = true }
+
+-- regular mappings
+
+vim.keymap.set('n', '<leader>ve', ':edit ~/.config/nvim/init.lua<CR>', opts)
+vim.keymap.set('n', '<leader>ke', ':edit ~/.config/kitty/kitty.conf<CR>', opts)
+vim.keymap.set('n', '<leader>ze', ':edit ~/.zshrc<CR>', opts)
+vim.keymap.set('n', '<C-d>', '<C-d>zz', opts)
+vim.keymap.set('n', '<C-u>', '<C-u>zz', opts)
+vim.keymap.set('x', '<leader>p', '"_dP', opts)
+vim.keymap.set('n', '<leader>cdh', ':cd %:h<CR>', opts)
+
 -- Plugin-specific mappings
---=============================
 
 -- telescope
 vim.keymap.set('n', '<C-f>', ':Telescope find_files<CR>', opts)
+vim.keymap.set('n', '<C-g>', ':Telescope live_grep<CR>', opts)
 
 -- yazi
 vim.keymap.set('n', '<leader><BS>', ':Yazi<CR>', opts)
