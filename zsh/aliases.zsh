@@ -42,7 +42,7 @@ copy_template() {
    git add -A
    git commit -m "Initial commit"
    mkdir -p build
-   $EDITOR ./src/main.cpp
+   $EDITOR +'CMakeGenerate' ./src/main.cpp
 }
 
 make_new() {
