@@ -29,12 +29,13 @@ vim.g.mapleader = " "
 local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
 
-map('n', '<leader>ve', ':edit ~/.config/nvim/init.lua<CR>', opts)
-map('n', '<leader>ke', ':edit ~/.config/kitty/kitty.conf<CR>', opts)
-map('n', '<leader>ze', ':edit ~/.zshrc<CR>', opts)
-map('n', '<C-d>', '<C-d>zz', opts)
-map('n', '<C-u>', '<C-u>zz', opts)
-map('x', '<leader>p', '"_dP', opts)
+vim.keymap.set('n', '<leader>ve', ':edit ~/.config/nvim/init.lua<CR>', opts)
+vim.keymap.set('n', '<leader>ke', ':edit ~/.config/kitty/kitty.conf<CR>', opts)
+vim.keymap.set('n', '<leader>ze', ':edit ~/.zshrc<CR>', opts)
+vim.keymap.set('n', '<C-d>', '<C-d>zz', opts)
+vim.keymap.set('n', '<C-u>', '<C-u>zz', opts)
+vim.keymap.set('x', '<leader>p', '"_dP', opts)
+vim.keymap.set('n', '<leader>cdh', ':cd %:h<CR>', opts)
 
 --=============================
 -- Plugins
@@ -66,6 +67,7 @@ local plugin_files = {
   "plugins.gitsigns",
 --  "plugins.noice",
   "plugins.cmake",
+  "plugins.fswitch",
 }
 
 local plugins = {}
@@ -84,6 +86,7 @@ vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, {desc = "Code Action"
 vim.keymap.set('n', '<leader>cmg', ':CMakeGenerate<CR>', opts)
 vim.keymap.set('n', '<leader>cmb', ':CMakeBuild<CR>', opts)
 vim.keymap.set('n', '<leader>cmr', ':CMakeRun', opts)
+vim.keymap.set('n', '<M-o>', ':FSHere<CR>', opts)
 
 
 -- Some lsp linting stuff
