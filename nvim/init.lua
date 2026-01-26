@@ -68,6 +68,7 @@ local plugin_files = {
 --  "plugins.noice",
   "plugins.cmake",
   "plugins.fswitch",
+  "plugins.harpoon",
 }
 
 local plugins = {}
@@ -80,13 +81,34 @@ require("lazy").setup(plugins)
 --=============================
 -- Plugin-specific mappings
 --=============================
+
+-- telescope
 vim.keymap.set('n', '<C-f>', ':Telescope find_files<CR>', opts)
+
+-- yazi
 vim.keymap.set('n', '<leader><BS>', ':Yazi<CR>', opts)
+
+-- lsp
 vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, {desc = "Code Action"})
+
+-- cmake
 vim.keymap.set('n', '<leader>cmg', ':CMakeGenerate<CR>', opts)
 vim.keymap.set('n', '<leader>cmb', ':CMakeBuild<CR>', opts)
 vim.keymap.set('n', '<leader>cmr', ':CMakeRun', opts)
+
+-- fswitch
 vim.keymap.set('n', '<M-o>', ':FSHere<CR>', opts)
+
+-- harpoon
+local harpoon = require("harpoon")
+vim.keymap.set('n', '<leader>hm', require('harpoon.mark').add_file, opts)
+vim.keymap.set('n', '<leader>H', require("harpoon.ui").toggle_quick_menu, opts)
+for i = 1, 9 do
+   vim.keymap.set('n', '<leader>h' .. i, function()
+      require("harpoon.ui").nav_file(i)
+   end, opts)
+end
+
 
 
 -- Some lsp linting stuff
