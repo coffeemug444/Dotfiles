@@ -5,7 +5,7 @@ set -o pipefail
 
 
 echo "Ensure you have the following dependencies installed:"
-echo "kitty nvim fd ripgrep clangd yazi"
+echo "kitty nvim fd ripgrep clangd yazi (and ya!)"
 echo ""
 echo "⚠️ WARNING: Running this script will override the following dotfiles:"
 echo "   ~/.zshrc"
