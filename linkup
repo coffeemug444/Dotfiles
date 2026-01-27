@@ -12,6 +12,7 @@ echo "   ~/.zshrc"
 echo "   ~/.config/nvim/init.lua"
 echo "   ~/.config/kitty/kitty.conf"
 echo "   ~/.config/nvim/init.vim"
+echo "   ~/.config/yazi/*.toml"
 read -p "Type 'y' to continue: " confirm
 
 if [[ "$confirm" != "y" ]]; then
@@ -58,6 +59,10 @@ ln -sf $dotdir/Templates/.clang-format $HOME/Templates
 ln -sf $dotdir/Templates/.clang-tidy $HOME/Templates
 ln -sf $dotdir/Templates/.gitignore $HOME/Templates
 
+# yazi
+mkdir -p $HOME/.config/yazi
+ln -sf $dotdir/yazi/*.toml $HOME/.config/yazi
+ya pkg add yazi-rs/plugins:smart-enter
 
 echo ""
 echo "All done! You may want to run:"
