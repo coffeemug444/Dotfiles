@@ -46,10 +46,11 @@ local plugin_files = {
   "plugins.blink",
   "plugins.vimbegood",
   "plugins.gitsigns",
---  "plugins.noice",
   "plugins.cmake",
   "plugins.fswitch",
   "plugins.harpoon",
+  "plugins.endwise",
+  "plugins.surround",
 }
 
 local plugins = {}
