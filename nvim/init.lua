@@ -19,12 +19,6 @@ opt.sidescrolloff = 8
 opt.clipboard = "unnamedplus"
 
 --=============================
--- Leader key
---=============================
-vim.g.mapleader = " "
-
-
---=============================
 -- Plugins
 --=============================
 
@@ -72,6 +66,7 @@ require("lazy").setup(plugins)
 
 local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
+vim.g.mapleader = " "
 
 -- regular mappings
 
@@ -112,15 +107,4 @@ for i = 1, 9 do
       require("harpoon.ui").nav_file(i)
    end, opts)
 end
-
-
-
--- Some lsp linting stuff
-vim.diagnostic.config({
-    virtual_text = true,  -- shows messages inline
-    signs = true,         -- keeps W/E in the sign column
-    underline = true,     -- underlines problematic code
-    update_in_insert = false,
-    severity_sort = true,
-})
 
