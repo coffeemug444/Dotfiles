@@ -1,3 +1,0 @@
-return {
-   'cdelledonne/vim-cmake',
-}
