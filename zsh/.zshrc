@@ -98,6 +98,7 @@ zplug "plugins/git",   from:oh-my-zsh
 zplug "carlcarl/powerline-zsh"
 zplug "romkatv/powerlevel10k", as:theme, depth:1
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
+zplug "zsh-users/zsh-autosuggestions"
 
 # Install plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then
@@ -109,6 +110,9 @@ fi
 
 # Then, source plugins and add commands to $PATH
 zplug load
+
+# plugin settings
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#666f70"
 
 export EDITOR=nvim
 export PATH=$PATH:$HOME/.local/bin
