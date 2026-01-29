@@ -81,6 +81,8 @@ vim.keymap.set('n', '<C-u>', '<C-u>zz', opts)
 vim.keymap.set('x', '<leader>p', '"_dP', opts)
 vim.keymap.set('n', '<leader>cdh', ':cd %:h<CR>', opts)
 vim.keymap.set('t', '<esc><esc>', '<c-\\><c-n>', opts)
+vim.keymap.set({'i', 'n'}, '<M-Up>', function() vim.cmd('move .-2') end, opts)
+vim.keymap.set({'i', 'n'}, '<M-Down>', function() vim.cmd('move .1') end, opts)
 
 -- Plugin-specific mappings
 

@@ -44,11 +44,3 @@ target_include_directories(main PRIVATE ${CMAKE_SOURCE_DIR}/src)
 file(COPY ${CMAKE_SOURCE_DIR}/resources
      DESTINATION ${CMAKE_BINARY_DIR})
 
-add_custom_target(symlink_compile_commands ALL
-    COMMAND ${CMAKE_COMMAND} -E create_symlink
-            ${CMAKE_BINARY_DIR}/compile_commands.json
-            ${CMAKE_SOURCE_DIR}/compile_commands.json
-    DEPENDS ${CMAKE_BINARY_DIR}/compile_commands.json
-    COMMENT "Creating symlink to compile_commands.json in top-level directory"
-)
-

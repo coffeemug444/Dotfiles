@@ -41,9 +41,7 @@ copy_template() {
    git init
    git add -A
    git commit -m "Initial commit"
-   mkdir -p Debug
-   ln -s Debug/compile_commands.json .
-   $EDITOR +'CMakeGenerate' ./src/main.cpp
+   $EDITOR ./src/main.cpp
 }
 
 make_new() {

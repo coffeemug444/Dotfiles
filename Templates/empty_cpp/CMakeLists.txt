@@ -37,10 +37,3 @@ target_link_libraries(main PRIVATE fmt::fmt range-v3)
 add_compile_options(-Wall -Wextra -Wpedantic -fsanitize=undefined -pg) # not using -Werror for hacking around stuff
 add_link_options(-fsanitize=undefined)  # Add sanitizers to the linker stage
 
-add_custom_target(symlink_compile_commands ALL
-    COMMAND ${CMAKE_COMMAND} -E create_symlink
-            ${CMAKE_BINARY_DIR}/compile_commands.json
-            ${CMAKE_SOURCE_DIR}/compile_commands.json
-    DEPENDS ${CMAKE_BINARY_DIR}/compile_commands.json
-    COMMENT "Creating symlink to compile_commands.json in top-level directory"
-)
