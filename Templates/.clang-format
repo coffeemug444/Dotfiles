@@ -1,0 +1,64 @@
+BasedOnStyle: Google
+
+# Always use 3 space indentation
+IndentWidth: 3
+ContinuationIndentWidth: 3
+TabWidth: 3
+AccessModifierOffset: -3 # `public`, `private` are same indentation as `class`
+UseTab: Never
+
+# lines longer than this get wrapped
+ColumnLimit: 105
+
+# no indentation for namespaces
+NamespaceIndentation: None
+
+# Always put braces on newlines
+BreakBeforeBraces: Allman
+
+# Sort includes within blocks, but
+# keep blocks in the same order
+IncludeBlocks: Preserve
+SortIncludes: true
+
+# one init per line
+BinPackParameters: false
+
+# if/for/while have braces
+# NB. This also inserts brackets for guard clauses
+# InsertBraces: true
+
+# don't care about keeping variable names, '=', comments aligned
+AlignConsecutiveDeclarations: None
+AlignConsecutiveAssignments: None
+AlignConsecutiveMacros: None
+
+# Begin items on newline if line is too long
+AlignAfterOpenBracket: AlwaysBreak
+
+# Put commas before variables in constructors
+AllowAllParametersOfDeclarationOnNextLine: true
+BreakConstructorInitializers: BeforeComma
+ConstructorInitializerAllOnOneLineOrOnePerLine: true
+
+# Consistent ordering for variable qualifiers
+QualifierAlignment: Custom
+QualifierOrder: ['constexpr', 'const', 'static', 'inline', 'type']
+
+# `case` has the same indentation as `switch`
+IndentCaseLabels: false
+
+# various added/removed spaces configs
+SpaceBeforeParens: ControlStatements
+SpacesInParentheses: false
+SpacesInSquareBrackets: false
+SpacesInAngles: false
+Cpp11BracedListStyle: true
+
+# line wrap long comments
+ReflowComments: true
+
+# functions always have breaks for braces
+AllowShortFunctionsOnASingleLine: None
+
+

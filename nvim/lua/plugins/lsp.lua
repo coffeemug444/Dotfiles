@@ -12,6 +12,9 @@ return {
       },
    },
    config = function()
+      vim.keymap.set("n",'<leader>F', function()
+         vim.lsp.buf.format({ async = false })
+      end);
       vim.lsp.config("luals", {
          capabilities = capabilities,
          settings = {

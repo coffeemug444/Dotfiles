@@ -1,5 +1,9 @@
 cmake_minimum_required(VERSION 3.10)
 
+if(NOT CMAKE_BUILD_TYPE)
+  set(CMAKE_BUILD_TYPE Debug CACHE STRING "Build type" FORCE)
+endif()
+
 project(main)
 
 set (CMAKE_CXX_STANDARD 23)

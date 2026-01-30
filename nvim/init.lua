@@ -37,9 +37,10 @@ vim.keymap.set('n', '<C-u>', '<C-u>zz', opts)
 vim.keymap.set('x', '<leader>p', '"_dP', opts)
 vim.keymap.set('n', '<leader>cdh', ':cd %:h<CR>', opts)
 vim.keymap.set('t', '<esc><esc>', '<c-\\><c-n>', opts)
-vim.keymap.set({'i', 'n'}, '<M-Up>', function() vim.cmd('move .-2') end, opts)
-vim.keymap.set({'i', 'n'}, '<M-Down>', function() vim.cmd('move .1') end, opts)
-vim.keymap.set('n', '<leader>F', 'gg=G\'\'', opts)
+vim.keymap.set({'i', 'n'}, '<M-k>', function() vim.cmd('move .-2') end, opts)
+vim.keymap.set({'i', 'n'}, '<M-j>', function() vim.cmd('move .1') end, opts)
+vim.keymap.set('n', '<C-w>c', ':tabclose<CR>', opts)
+-- vim.keymap.set('n', '<leader>F', 'gg=G\'\'', opts)
 
 vim.api.nvim_set_keymap("n", "<leader>cc", ":!cmake -S . -B build<CR>", opts) -- configure
 vim.api.nvim_set_keymap("n", "<leader>cb", ":!cmake -S . -B build && cmake --build build<CR>", opts) -- build
@@ -91,6 +92,7 @@ local plugin_files = {
    -- "plugins.rainbow",
    "plugins.treesitter",
    "plugins.multicursor",
+   "plugins.dap",
 }
 
 local plugins = {}

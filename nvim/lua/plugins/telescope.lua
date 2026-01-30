@@ -15,6 +15,9 @@ return {
                hidden = true,  -- show hidden files like dotfiles
             },
          },
+         extensions = {
+            fzf = {}
+         },
       }
    end,
 }
