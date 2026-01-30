@@ -20,6 +20,28 @@ opt.clipboard = "unnamedplus"
 opt.colorcolumn = "105"
 
 --=============================
+-- Key mappings
+--=============================
+
+local map = vim.api.nvim_set_keymap
+local opts = { noremap = true, silent = true }
+vim.g.mapleader = " "
+
+-- regular mappings
+
+vim.keymap.set('n', '<leader>ve', ':edit ~/.config/nvim/init.lua<CR>', opts)
+vim.keymap.set('n', '<leader>ke', ':edit ~/.config/kitty/kitty.conf<CR>', opts)
+vim.keymap.set('n', '<leader>ze', ':edit ~/.zshrc<CR>', opts)
+vim.keymap.set('n', '<C-d>', '<C-d>zz', opts)
+vim.keymap.set('n', '<C-u>', '<C-u>zz', opts)
+vim.keymap.set('x', '<leader>p', '"_dP', opts)
+vim.keymap.set('n', '<leader>cdh', ':cd %:h<CR>', opts)
+vim.keymap.set('t', '<esc><esc>', '<c-\\><c-n>', opts)
+vim.keymap.set({'i', 'n'}, '<M-Up>', function() vim.cmd('move .-2') end, opts)
+vim.keymap.set({'i', 'n'}, '<M-Down>', function() vim.cmd('move .1') end, opts)
+vim.keymap.set('n', 'F', 'gg=G\'\'', opts)
+
+--=============================
 -- Plugins
 --=============================
 
@@ -55,6 +77,7 @@ local plugin_files = {
    "plugins.friendly-snippets",
    -- "plugins.rainbow",
    "plugins.treesitter",
+   "plugins.multicursor",
 }
 
 local plugins = {}
@@ -63,29 +86,6 @@ for _, file in ipairs(plugin_files) do
 end
 
 require("lazy").setup(plugins)
-
-
---=============================
--- Key mappings
---=============================
-
-local map = vim.api.nvim_set_keymap
-local opts = { noremap = true, silent = true }
-vim.g.mapleader = " "
-
--- regular mappings
-
-vim.keymap.set('n', '<leader>ve', ':edit ~/.config/nvim/init.lua<CR>', opts)
-vim.keymap.set('n', '<leader>ke', ':edit ~/.config/kitty/kitty.conf<CR>', opts)
-vim.keymap.set('n', '<leader>ze', ':edit ~/.zshrc<CR>', opts)
-vim.keymap.set('n', '<C-d>', '<C-d>zz', opts)
-vim.keymap.set('n', '<C-u>', '<C-u>zz', opts)
-vim.keymap.set('x', '<leader>p', '"_dP', opts)
-vim.keymap.set('n', '<leader>cdh', ':cd %:h<CR>', opts)
-vim.keymap.set('t', '<esc><esc>', '<c-\\><c-n>', opts)
-vim.keymap.set({'i', 'n'}, '<M-Up>', function() vim.cmd('move .-2') end, opts)
-vim.keymap.set({'i', 'n'}, '<M-Down>', function() vim.cmd('move .1') end, opts)
-vim.keymap.set('n', 'F', 'gg=G\'\'', opts)
 
 -- Plugin-specific mappings
 
