@@ -27,6 +27,9 @@ tempe () {
   fi
 }
 
+# anything else you need to put in the project dir....
+copy_template_extras() {}
+
 copy_template() {
    if [ $# -eq 1 ]; then
       tempe
@@ -41,6 +44,8 @@ copy_template() {
    git init
    git add -A
    git commit -m "Initial commit"
+   copy_template_extras
+   background cmake -S . -B build && cmake --build build
    $EDITOR ./src/main.cpp
 }
 
