@@ -39,7 +39,20 @@ vim.keymap.set('n', '<leader>cdh', ':cd %:h<CR>', opts)
 vim.keymap.set('t', '<esc><esc>', '<c-\\><c-n>', opts)
 vim.keymap.set({'i', 'n'}, '<M-Up>', function() vim.cmd('move .-2') end, opts)
 vim.keymap.set({'i', 'n'}, '<M-Down>', function() vim.cmd('move .1') end, opts)
-vim.keymap.set('n', 'F', 'gg=G\'\'', opts)
+vim.keymap.set('n', '<leader>F', 'gg=G\'\'', opts)
+
+vim.api.nvim_set_keymap("n", "<leader>cc", ":!cmake -S . -B build<CR>", opts) -- configure
+vim.api.nvim_set_keymap("n", "<leader>cb", ":!cmake -S . -B build && cmake --build build<CR>", opts) -- build
+vim.api.nvim_set_keymap("n", "<leader>cl", ":!cmake --build build --target clean<CR>", opts) -- clean
+vim.api.nvim_set_keymap("n", "<leader>ct", ":!ctest --output-on-failure<CR>", opts) -- test
+vim.api.nvim_create_autocmd("BufWritePost", {
+   pattern = { "CMakeLists.txt", "sources.cmake" },
+   callback = function()
+      vim.cmd("!cmake -S . -B build &")
+      print("CMake reconfigured")
+   end,
+})
+vim.api.nvim_set_keymap("n", "<leader>cr", ":!cmake -S . -B build && cmake --build build && ./build/main<CR>", opts) -- build
 
 --=============================
 -- Plugins
@@ -86,48 +99,4 @@ for _, file in ipairs(plugin_files) do
 end
 
 require("lazy").setup(plugins)
-
--- Plugin-specific mappings
-
--- telescope
-vim.keymap.set('n', '<C-f>', ':Telescope find_files<CR>', opts)
-vim.keymap.set('n', '<C-g>', ':Telescope live_grep<CR>', opts)
-
--- yazi
-vim.keymap.set('n', '<leader><BS>', ':Yazi<CR>', opts)
-
--- lsp
-vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, {desc = "Code Action"})
-
--- cmake
-vim.api.nvim_set_keymap("n", "<leader>cc", ":!cmake -S . -B build<CR>", opts) -- configure
-vim.api.nvim_set_keymap("n", "<leader>cb", ":!cmake -S . -B build && cmake --build build<CR>", opts) -- build
-vim.api.nvim_set_keymap("n", "<leader>cl", ":!cmake --build build --target clean<CR>", opts) -- clean
-vim.api.nvim_set_keymap("n", "<leader>ct", ":!ctest --output-on-failure<CR>", opts) -- test
-vim.api.nvim_create_autocmd("BufWritePost", {
-   pattern = { "CMakeLists.txt", "sources.cmake" },
-   callback = function()
-      vim.cmd("!cmake -S . -B build &")
-      print("CMake reconfigured")
-   end,
-})
-vim.api.nvim_set_keymap("n", "<leader>cr", ":!cmake -S . -B build && cmake --build build && ./build/main<CR>", opts) -- build
-
--- fswitch
-vim.keymap.set('n', '<M-o>', ':FSHere<CR>', opts)
-
--- harpoon
-local harpoon = require("harpoon")
-vim.keymap.set('n', '<leader>H', require('harpoon.mark').add_file, opts)
-vim.keymap.set('n', '<leader>hh', require("harpoon.ui").toggle_quick_menu, opts)
-for i = 1, 9 do
-   vim.keymap.set('n', '<leader>h' .. i, function()
-      require("harpoon.ui").nav_file(i)
-   end, opts)
-end
-
--- commentary
-vim.keymap.set({'n', 'i'}, '<C-/>', function() vim.cmd('Commentary') end, opts)
-
--- Treesitter
 

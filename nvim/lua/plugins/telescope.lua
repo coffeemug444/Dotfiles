@@ -6,6 +6,8 @@ return {
       "nvim-tree/nvim-web-devicons"
    },
    config = function()
+      vim.keymap.set('n', '<C-f>', ':Telescope find_files<CR>', opts)
+      vim.keymap.set('n', '<C-g>', ':Telescope live_grep<CR>', opts)
       local telescope = require('telescope')
       telescope.setup{
          pickers = {
