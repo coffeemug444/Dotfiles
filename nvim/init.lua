@@ -18,6 +18,7 @@ opt.scrolloff = 8
 opt.sidescrolloff = 8
 opt.clipboard = "unnamedplus"
 
+
 --=============================
 -- Plugins
 --=============================
@@ -25,39 +26,40 @@ opt.clipboard = "unnamedplus"
 -- Lazy.nvim bootstrap
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable",
-    lazypath,
-  })
+   vim.fn.system({
+      "git",
+      "clone",
+      "--filter=blob:none",
+      "https://github.com/folke/lazy.nvim.git",
+      "--branch=stable",
+      lazypath,
+   })
 end
 vim.opt.rtp:prepend(lazypath)
 
 -- Add plugins
 local plugin_files = {
-  "plugins.telescope",
-  "plugins.yazi",
-  "plugins.vim-code-dark",
-  "plugins.fugitive",
-  "plugins.lsp",
-  "plugins.blink",
-  "plugins.vimbegood",
-  "plugins.gitsigns",
-  "plugins.fswitch",
-  "plugins.harpoon",
-  "plugins.endwise",
-  "plugins.surround",
-  "plugins.commentary",
-  "plugins.friendly-snippets",
-  "plugins.rainbow",
+   "plugins.telescope",
+   "plugins.yazi",
+   "plugins.vim-code-dark",
+   "plugins.fugitive",
+   "plugins.lsp",
+   "plugins.blink",
+   "plugins.vimbegood",
+   "plugins.gitsigns",
+   "plugins.fswitch",
+   "plugins.harpoon",
+   "plugins.endwise",
+   "plugins.surround",
+   "plugins.commentary",
+   "plugins.friendly-snippets",
+   -- "plugins.rainbow",
+   "plugins.treesitter",
 }
 
 local plugins = {}
 for _, file in ipairs(plugin_files) do
-  table.insert(plugins, require(file))
+   table.insert(plugins, require(file))
 end
 
 require("lazy").setup(plugins)
@@ -83,6 +85,7 @@ vim.keymap.set('n', '<leader>cdh', ':cd %:h<CR>', opts)
 vim.keymap.set('t', '<esc><esc>', '<c-\\><c-n>', opts)
 vim.keymap.set({'i', 'n'}, '<M-Up>', function() vim.cmd('move .-2') end, opts)
 vim.keymap.set({'i', 'n'}, '<M-Down>', function() vim.cmd('move .1') end, opts)
+vim.keymap.set('n', 'F', 'gg=G\'\'', opts)
 
 -- Plugin-specific mappings
 
@@ -125,4 +128,6 @@ end
 
 -- commentary
 vim.keymap.set({'n', 'i'}, '<C-/>', function() vim.cmd('Commentary') end, opts)
+
+-- Treesitter
 
