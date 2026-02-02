@@ -15,7 +15,7 @@ return {
       vim.keymap.set("n",'<leader>F', function()
          vim.lsp.buf.format({ async = false })
       end);
-      vim.lsp.config("luals", {
+      vim.lsp.config("lua_ls", {
          capabilities = capabilities,
          settings = {
             Lua = {
@@ -26,7 +26,7 @@ return {
             },
          },
       })
-      vim.lsp.enable({'clangd', 'luals'})
+      vim.lsp.enable({'clangd', 'lua_ls'})
 
       vim.diagnostic.config({
          virtual_text = false,  -- shows messages inline
