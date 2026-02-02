@@ -15,6 +15,9 @@ return {
       vim.keymap.set("n",'<leader>F', function()
          vim.lsp.buf.format({ async = false })
       end);
+      vim.keymap.set("n",'<leader>d', function()
+         vim.diagnostic.open_float()
+      end);
       vim.lsp.config("luals", {
          capabilities = capabilities,
          settings = {
@@ -29,11 +32,12 @@ return {
       vim.lsp.enable({'clangd', 'luals'})
 
       vim.diagnostic.config({
-         virtual_text = true,  -- shows messages inline
-         signs = true,         -- keeps W/E in the sign column
+         virtual_text = false,  -- shows messages inline
+         signs = false,         -- keeps W/E in the sign column
          underline = true,     -- underlines problematic code
          update_in_insert = false,
          severity_sort = true,
+         float = true,
       })
    end,
 }

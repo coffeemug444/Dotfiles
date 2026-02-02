@@ -93,6 +93,7 @@ local plugin_files = {
    "plugins.treesitter",
    "plugins.multicursor",
    "plugins.dap",
+   "plugins.scrollbar",
 }
 
 local plugins = {}

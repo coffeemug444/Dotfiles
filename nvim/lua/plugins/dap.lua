@@ -23,9 +23,7 @@ return {
             type = "gdb",
             request = "launch",
             program = function()
-               -- return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
-               -- return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/build/main')
-               return vim.fn.getcwd() .. "/build/main"
+               return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/build/main')
             end,
             args = {}, -- provide arguments if needed
             cwd = "${workspaceFolder}",
