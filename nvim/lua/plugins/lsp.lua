@@ -15,9 +15,6 @@ return {
       vim.keymap.set("n",'<leader>F', function()
          vim.lsp.buf.format({ async = false })
       end);
-      vim.keymap.set("n",'<leader>d', function()
-         vim.diagnostic.open_float()
-      end);
       vim.lsp.config("luals", {
          capabilities = capabilities,
          settings = {
