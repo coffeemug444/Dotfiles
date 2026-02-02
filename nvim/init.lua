@@ -18,6 +18,7 @@ opt.scrolloff = 8
 opt.sidescrolloff = 8
 opt.clipboard = "unnamedplus"
 opt.colorcolumn = "105"
+opt.winborder = "rounded"
 
 --=============================
 -- Key mappings
