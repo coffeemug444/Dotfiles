@@ -12,11 +12,14 @@ return {
       },
    },
    config = function()
-      vim.keymap.set("n",'<leader>F', function()
+      local opts = { noremap = true, silent = true }
+      vim.keymap.set("n", '<leader>F', function()
          vim.lsp.buf.format({ async = false })
       end);
+      vim.keymap.set("n", 'gd', vim.lsp.buf.definition, opts)
+      vim.keymap.set("n", 'gD', vim.lsp.buf.declaration, opts)
+      vim.keymap.set("n", 'gt', vim.lsp.buf.type_definition, opts)
       vim.lsp.config("lua_ls", {
-         capabilities = capabilities,
          settings = {
             Lua = {
                workspace = {
@@ -26,11 +29,11 @@ return {
             },
          },
       })
-      vim.lsp.enable({'clangd', 'lua_ls'})
+      vim.lsp.enable({ 'clangd', 'lua_ls' })
 
       vim.diagnostic.config({
-         virtual_text = false,  -- shows messages inline
-         signs = false,         -- keeps W/E in the sign column
+         virtual_text = false, -- shows messages inline
+         signs = false,        -- keeps W/E in the sign column
          underline = true,     -- underlines problematic code
          update_in_insert = false,
          severity_sort = true,
