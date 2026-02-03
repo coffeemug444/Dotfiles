@@ -41,7 +41,7 @@ vim.keymap.set('t', '<esc><esc>', '<c-\\><c-n>', opts)
 vim.keymap.set({ 'i', 'n' }, '<M-k>', function() vim.cmd('move .-2') end, opts)
 vim.keymap.set({ 'i', 'n' }, '<M-j>', function() vim.cmd('move .1') end, opts)
 vim.keymap.set('n', '<C-w>c', ':tabclose<CR>', opts)
--- vim.keymap.set('n', '<leader>F', 'gg=G\'\'', opts)
+vim.keymap.set('n', '<tab>', 'i<tab>', opts)
 
 vim.api.nvim_set_keymap("n", "<leader>cc", ":!cmake -S . -B build<CR>", opts)                        -- configure
 vim.api.nvim_set_keymap("n", "<leader>cb", ":!cmake -S . -B build && cmake --build build<CR>", opts) -- configure and build
@@ -103,6 +103,7 @@ local plugin_files = {
    "plugins.dap",
    "plugins.scrollbar",
    "plugins.tmux",
+   "plugins.autopairs",
 }
 
 local plugins = {}
