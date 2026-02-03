@@ -102,6 +102,7 @@ local plugin_files = {
    "plugins.multicursor",
    "plugins.dap",
    "plugins.scrollbar",
+   "plugins.tmux",
 }
 
 local plugins = {}
