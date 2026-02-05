@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+set -e
+set -u
+set -o pipefail
+
+if [ ! $# -eq 1 ]; then
+   echo "wrong usage"
+   exit 1
+fi
+
+curl cheat.sh/$1
