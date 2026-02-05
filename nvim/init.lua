@@ -19,6 +19,7 @@ opt.sidescrolloff = 8
 opt.clipboard = "unnamedplus"
 opt.colorcolumn = "105"
 opt.winborder = "rounded"
+opt.swapfile = false
 
 --=============================
 -- Key mappings
@@ -103,7 +104,6 @@ local plugin_files = {
    "plugins.dap",
    "plugins.scrollbar",
    "plugins.tmux",
-   "plugins.autopairs",
 }
 
 local plugins = {}
