@@ -30,6 +30,7 @@ return {
          },
       })
       vim.lsp.enable({ 'clangd', 'lua_ls' })
+      vim.lsp.enable('bashls')
 
       vim.diagnostic.config({
          virtual_text = false, -- shows messages inline
