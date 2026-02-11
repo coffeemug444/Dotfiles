@@ -1,17 +1,33 @@
 # Ben's Dotfiles
-These are my dotfiles. It's a setup for:
- - kitty
- - zsh
-   - plus some handy scripts
- - neovim
- - a couple of c++ templates for rapid testing
-
+These are my dotfiles. Managed by GNU stow.
 
 # Usage
-Make sure you have the following dependencies installed: `kitty nvim fd ripgrep clangd yazi`
+Make sure you have the following dependencies installed:
+ * GNU stow
+ * kitty
+ * nvim
+ * fd
+ * ripgrep
+ * yazi (and ya!)
+ * tmux
+ * lsp stuff (You'll need executables reachable from your PATH, so just put these in ~/.local/bin)
+   * clangd
+     * From clang, otherwise take a release from https://github.com/clangd/clangd
+   * tree-sitter-cli"
+     * https://github.com/tree-sitter/tree-sitter/blob/master/crates/cli/README.md"
+   * lua-language-server
+     * https://luals.github.io/#install
+   * bash-language-server + shellcheck
+     * Your package manager should have these
 
-Then continue with the following:
+oneline for arch:
+`sudo pacman -S stow kitty nvim fd ripgrep clang yazi tmux bash-language-server shellcheck shfmt`
+ > ⚠️ you'll still need to install tree-sitter-cli and lua-language-server yourself
+
+
+If you're starting from a fresh install you'll need to do the following:
 1. Clone this repo to ~/.dotfiles
-2. `cd` into it and run `./linkup`
-    - ⚠️ Warning: This is a destructive install. All current configurations will be lost, make sure you make a backup.
-3. Enjoy my perfect terminal setup
+2. `cd` into it and run `stow .`
+3. run `nvim +'PlugInstall --sync' +qa`
+4. run `ya pkg add yazi-rs/plugins:smart-enter`
+5. run `git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm`
