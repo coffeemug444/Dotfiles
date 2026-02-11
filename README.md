@@ -32,6 +32,5 @@ oneline for arch:
 If you're starting from a fresh install you'll need to do the following:
 1. Clone this repo to ~/.dotfiles
 2. `cd` into it and run `stow .`
-3. run `nvim +'PlugInstall --sync' +qa`
-4. run `ya pkg add yazi-rs/plugins:smart-enter`
-5. run `git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm`
+3. run `ya pkg add yazi-rs/plugins:smart-enter`
+4. run `git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm`
