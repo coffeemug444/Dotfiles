@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+set -e
+set -u
+set -o pipefail
+
+printf "Handy shell stuff:
+
+# last command with all args:
+$ !! 
+eg. $ sudo !! # rerun last with sudo
+
+# last command without final arg:
+$ !:-
+eg. 
+$ /usr/sbin/ab2 -f TLS1 -S -n 1000 -c 100 -t 2 http://www.google.com/
+$ !:- http://www.commandlinefu.com/ # replace just url
+
+# reuse all args of last command
+$ !*
+
+# substitute 'foo' with 'bar' in previous command
+$ ^foo^bar
+
+# get last argument in the shell
+$ 'ALT+.'
+
+# get external IP
+$ curl ifconfig.me
+
+# stash and restore input
+$ <CTRL+U> [...] <CTRL+Y>
+
+# push this location to a stack
+$ pushd directory/to/move/to # saves current dir to stack, cd's to new dir
+$ popd # return to saved dir
+"
