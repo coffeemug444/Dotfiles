@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+set -e
+set -u
+set -o pipefail
+
+if [ $# -eq 0 ]; then
+   echo 'abcdefghijklmnopqrstuvwxyz'
+   echo 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+elif [ $1 == 'g' ]; then
+   echo 'αβγδεζηθικλμνξοπρστυφχψω'
+   echo 'ΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩ'
+elif [ $1 == 'j' ]; then
+   echo 'あいうえお  アイウエオ'
+   echo 'かきくけこ  カキクケコ'
+   echo 'さしすせそ  サシスセソ'
+   echo 'たちつてと  タチツテト'
+   echo 'なにぬねの  ナニヌネノ'
+   echo 'はひふへほ  ハヒフヘホ'
+   echo 'まみむめも  マミムメモ'
+   echo 'やゆよ      ヤユヨ    '
+   echo 'らりるれろ  ラリルレロ'
+   echo 'わをん      ワヲン    '
+fi
