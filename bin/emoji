@@ -8,7 +8,33 @@ set -e
 set -u
 set -o pipefail
 
-emoji="😀 grinning cheerful cheery face grin grinning face happy laugh nice smile smiling teeth
+emoji="\
+$ dollar
+¢ cent
+£ pound gbp
+¥ yen
+≠ neq !=
+≈ close similar ~=
+≡ eqq ===
+≤ le <=
+≥ ge >=
+± plusminus +-
+∑ sum
+∏ product
+√ sqrt
+∞ inf infinity
+∫ integral
+∂ delta d
+∆ delta d
+∇ nabla
+© copyright
+® registered
+™ trademark tm
+° degrees degree temperature
+¶ paragraph
+§ section
+† dagger footnote
+😀 grinning cheerful cheery face grin grinning face happy laugh nice smile smiling teeth
 😃 smiley awesome face grin happy mouth open smile smiling smiling face with open mouth teeth yay
 😄 smile eye face grin happy laugh lol mouth open smiling smiling face with open mouth & smiling eyes
 😁 grin eye face grinning face with smiling eyes happy nice smile smiling teeth beaming
