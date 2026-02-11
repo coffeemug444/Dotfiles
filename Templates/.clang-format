@@ -10,7 +10,7 @@ UseTab: Never
 # lines longer than this get wrapped
 ColumnLimit: 105
 
-# no indentation for namespaces
+# no indentation inside namespaces
 NamespaceIndentation: None
 
 # Always put braces on newlines
@@ -21,12 +21,21 @@ BreakBeforeBraces: Allman
 IncludeBlocks: Preserve
 SortIncludes: true
 
-# one init per line
-BinPackParameters: false
+# Fit all function arguments on a single line if
+# possible, otherwise one per line
+BinPackParameters: OnePerLine
+BinPackArguments: false
+
+# Constructor lists have one member per line, comma first
+BreakConstructorInitializers: BeforeComma
+PackConstructorInitializers: CurrentLine
 
 # if/for/while have braces
 # NB. This also inserts brackets for guard clauses
-# InsertBraces: true
+InsertBraces: true
+
+# functions with braces are never on a single line
+AllowShortFunctionsOnASingleLine: None
 
 # don't care about keeping variable names, '=', comments aligned
 AlignConsecutiveDeclarations: None
@@ -36,14 +45,9 @@ AlignConsecutiveMacros: None
 # Begin items on newline if line is too long
 AlignAfterOpenBracket: AlwaysBreak
 
-# Put commas before variables in constructors
-AllowAllParametersOfDeclarationOnNextLine: true
-BreakConstructorInitializers: BeforeComma
-ConstructorInitializerAllOnOneLineOrOnePerLine: true
-
 # Consistent ordering for variable qualifiers
 QualifierAlignment: Custom
-QualifierOrder: ['constexpr', 'const', 'static', 'inline', 'type']
+QualifierOrder: ['static', 'inline', 'constexpr', 'const', 'type']
 
 # `case` has the same indentation as `switch`
 IndentCaseLabels: false
@@ -57,8 +61,4 @@ Cpp11BracedListStyle: true
 
 # line wrap long comments
 ReflowComments: true
-
-# functions always have breaks for braces
-AllowShortFunctionsOnASingleLine: None
-
 
