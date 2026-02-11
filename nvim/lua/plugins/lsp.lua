@@ -16,9 +16,9 @@ return {
       vim.keymap.set("n", '<leader>F', function()
          vim.lsp.buf.format({ async = false })
       end);
-      vim.keymap.set("n", 'gd', vim.lsp.buf.definition, opts)
-      vim.keymap.set("n", 'gD', vim.lsp.buf.declaration, opts)
-      vim.keymap.set("n", 'gt', vim.lsp.buf.type_definition, opts)
+      vim.keymap.set("n", '<leader>gd', vim.lsp.buf.definition, opts)
+      vim.keymap.set("n", '<leader>gD', vim.lsp.buf.declaration, opts)
+      vim.keymap.set("n", '<leader>gt', vim.lsp.buf.type_definition, opts)
       vim.lsp.config("lua_ls", {
          settings = {
             Lua = {
@@ -29,16 +29,29 @@ return {
             },
          },
       })
-      vim.lsp.enable({ 'clangd', 'lua_ls' })
-      vim.lsp.enable('bashls')
+      -- to find names of lsp configs:
+      -- :help lspconfig-all
+      vim.lsp.enable({
+         'bashls',
+         'clangd',
+         'lua_ls',
+         'pylsp',
+      })
 
       vim.diagnostic.config({
          virtual_text = false, -- shows messages inline
-         signs = false,        -- keeps W/E in the sign column
-         underline = true,     -- underlines problematic code
+         signs = {
+            severity = { min = vim.diagnostic.severity.ERROR },
+         },
+         underline = true, -- underlines problematic code
          update_in_insert = false,
          severity_sort = true,
          float = true,
+      })
+      vim.fn.sign_define("DiagnosticSignError", {
+         text = "⛔",
+         texthl = "DiagnosticSignError",
+         numhl = "",
       })
    end,
 }
