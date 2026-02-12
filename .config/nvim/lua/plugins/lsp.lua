@@ -53,5 +53,17 @@ return {
          texthl = "DiagnosticSignError",
          numhl = "",
       })
+      vim.api.nvim_create_autocmd("BufWritePre", {
+         pattern = { "*.cpp", "*.hpp" }, -- adjust as needed
+         callback = function()
+            local clients = vim.lsp.get_active_clients({ bufnr = vim.api.nvim_get_current_buf() })
+            for _, client in ipairs(clients) do
+               if client.name == "clangd" and client.server_capabilities.documentFormattingProvider then
+                  vim.lsp.buf.format({ async = false })
+                  break
+               end
+            end
+         end,
+      })
    end,
 }
