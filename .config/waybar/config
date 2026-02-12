@@ -89,6 +89,6 @@
           "default": [""]
        },
 
-       "on-click": "blueman-manager"
+       "on-click": "pavucontrol"
    }
 }
