@@ -1,2 +1,4 @@
 .config/yazi/package.toml
 .config/yazi/plugins
+.config/kitty/kitty.conf.bak
+.config/nvim/lazy-lock.json
