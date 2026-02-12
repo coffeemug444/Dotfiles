@@ -28,14 +28,14 @@ BinPackArguments: false
 
 # Constructor lists have one member per line, comma first
 BreakConstructorInitializers: BeforeComma
-PackConstructorInitializers: CurrentLine
+PackConstructorInitializers: Never
 
 # if/for/while have braces
 # NB. This also inserts brackets for guard clauses
 InsertBraces: true
 
-# functions with braces are never on a single line
-AllowShortFunctionsOnASingleLine: None
+# functions can only be on a single line when defined in a class, or empty functions
+AllowShortFunctionsOnASingleLine: Inline
 
 # don't care about keeping variable names, '=', comments aligned
 AlignConsecutiveDeclarations: None
@@ -61,4 +61,3 @@ Cpp11BracedListStyle: true
 
 # line wrap long comments
 ReflowComments: true
-
