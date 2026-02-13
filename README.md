@@ -4,6 +4,7 @@ These are my dotfiles. Managed by GNU stow.
 # Usage
 Make sure you have the following dependencies installed:
  * GNU stow
+ * zsh
  * kitty
  * tmux
  * nvim
@@ -25,7 +26,7 @@ And if you're kind of freaky:
  * waybar
 
 oneline for arch:
-`sudo pacman -S stow kitty nvim fd ripgrep clang yazi tmux bash-language-server shellcheck shfmt sway waybar`
+`sudo pacman -S stow zsh rofi kitty nvim fd ripgrep clang yazi tmux bash-language-server shellcheck shfmt sway waybar`
  > ⚠️ you'll still need to install tree-sitter-cli and lua-language-server yourself
 
 
