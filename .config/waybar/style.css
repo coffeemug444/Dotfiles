@@ -3,6 +3,16 @@
    font-size: 16px;
 }
 
+.modules-left {
+   background-color: #323232;
+   padding: 0px 0px 0px 0px;
+}
+
+
+.modules-right {
+   background-color: #323232;
+   padding: 0px 5px 0px 0px;
+}
 
 #custom-scratch {
    background-color: #323232;
@@ -24,7 +34,7 @@
 
 #workspaces button.focused { 
    padding: 0px 11px 0px 11px; 
-   background-color: #285577;
+   background-color: #5b6063;
    color: #ffffff;
 }
 
@@ -39,7 +49,7 @@
 
 #window {
    color: #ffffff;
-   background-color: #285577;
+   background-color: #5b6063;
    padding: 0px 10px 0px 10px;
 }
 
@@ -59,6 +69,29 @@ window#waybar.empty {
    padding: 0px 15px 0px 15px;
 }
 
+#pulseaudio-slider {
+    padding: 0;
+    margin: 0;
+}
+#pulseaudio-slider slider {
+    min-height: 0px;
+    min-width: 0px;
+    opacity: 0;
+    background-image: none;
+    border: none;
+    box-shadow: none;
+}
+#pulseaudio-slider trough {
+    min-height: 10px;
+    min-width: 80px;
+    border-radius: 5px;
+    background: black;
+}
+#pulseaudio-slider highlight {
+    min-width: 10px;
+    border-radius: 5px;
+    background: white;
+}
 
 #clock {
    margin: 0px 15px 0px 15px;

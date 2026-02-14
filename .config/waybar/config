@@ -6,7 +6,7 @@
 
    "modules-left": ["sway/workspaces"],
    "modules-center": [],
-   "modules-right": ["network", "temperature", "backlight", "pulseaudio", "battery", "clock", "tray"],
+   "modules-right": ["network", "temperature", "backlight", "pulseaudio", "pulseaudio/slider", "battery", "clock", "tray"],
 
 
    "sway/workspaces": {
@@ -29,7 +29,7 @@
 
 
    "clock": {
-      "format": "{:%a %b %e  %R}",
+      "format": "{:%a %b %e %I:%M}",
       "interval": 30
    },
 
@@ -54,7 +54,7 @@
 
    "network": {
       "format-wifi": "  {signalStrength}%",
-      "format-ethernet": "Connected  ",
+      "format-ethernet": " ",
       "tooltip-format": "{ifname}: {gwaddr}",
 
       "format-disconnected": "Disconnected ⚠",
@@ -80,9 +80,9 @@
 
 
    "pulseaudio": {
-      "format": "{icon}   {volume}%  ",
-      "format-bluetooth": "  {volume}%  ",
-      "format-muted":"婢  Mute  ",
+      "format": "{icon}  {volume}%  ",
+      "format-bluetooth": " {volume}%  ",
+      "format-muted":" {volume}%  ",
       "interval": 60,
 
        "format-icons": {
@@ -90,5 +90,12 @@
        },
 
        "on-click": "pavucontrol"
+   },
+
+
+   "pulseaudio/slider": {
+      "min": 0,
+      "max": 100,
+      "orientation": "horizontal"
    }
 }
