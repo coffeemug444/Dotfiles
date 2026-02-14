@@ -16,7 +16,7 @@ set $right l
 # Your preferred terminal emulator
 set $term kitty
 # Your preferred application launcher
-set $menu rofi
+set $menu rofi -show drun
 
 ### Output configuration
 #
@@ -38,8 +38,13 @@ set $menu rofi
           timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
           before-sleep 'swaylock -f -c 000000'
 
-exec ~/.local/bootscripts/boot
+exec_always ~/.local/bootscripts/boot
+exec_always --no-startup-id dunst
 exec wl-clip-persist --clipboard both
+
+# lock on startup
+exec swaylock
+
 
 #
 # This will lock your screen after 300 seconds of inactivity, then turn off
@@ -59,6 +64,10 @@ input type:touchpad {
     natural_scroll enabled
     middle_emulation enabled
 }
+input type:pointer {
+   accel_profile "flat"
+   pointer_accel 0.7
+}
 input type:keyboard xkb_numlock enabled
 #
 #   input type:keyboard {
@@ -68,10 +77,14 @@ input type:keyboard xkb_numlock enabled
 # You can also configure each device individually.
 # Read `man 5 sway-input` for more information about this section.
 
+default_border pixel 1
+
 ### Key bindings
 #
 # Basics:
 #
+    bindsym $mod+x exec swaylock
+
     # Start a terminal
     bindsym $mod+Return exec $term
 
@@ -79,7 +92,7 @@ input type:keyboard xkb_numlock enabled
     bindsym $mod+Shift+q kill
 
     # Start your launcher
-    bindsym $mod+d exec $menu -show drun
+    bindsym $mod+d exec $menu
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -145,10 +158,16 @@ input type:keyboard xkb_numlock enabled
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
     
+    # move workspace to other monitor
     bindsym $mod+Ctrl+Shift+Left  move workspace to output left
     bindsym $mod+Ctrl+Shift+Right move workspace to output right
     bindsym $mod+Ctrl+Shift+$left  move workspace to output left
     bindsym $mod+Ctrl+Shift+$right move workspace to output right
+
+    # create new workspace
+    set $snw ~/.local/bin/sway-new-workspace
+    bindsym $mod+n exec $snw open
+    bindsym $mod+Shift+n exec $snw move
 #
 # Layout stuff:
 #
@@ -233,27 +252,9 @@ bindsym $mod+r mode "resize"
     # Special key to take a screenshot with grim
     bindsym Print exec grim
 
-bar {
-    swaybar_command waybar
-}
-#
-# Status Bar:
-#
-# Read `man 5 sway-bar` for more information about this section.
 
-#bar {
-#    position top
-#
-#    # When the status_command prints a new line to stdout, swaybar updates.
-#    # The default just shows the current date and time.
-#    #status_command while ~/.config/sway/swaybar/swaybar.sh; do sleep 1; done
-#    status_command 'echo -e \'{"version": 1}\\x0A[[{"full_text": "xxx"},{"full_text": "yyy"}],\'; sleep 9999'
-#    
-#    colors {
-#        statusline #ffffff
-#        background #323232
-#        inactive_workspace #32323200 #32323200 #5c5c5c
-#    }
-#}
+bar {
+   swaybar_command waybar
+}
 
 include @sysconfdir@/sway/config.d/*
