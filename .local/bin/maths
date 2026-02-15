@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+set -e
+set -u
+set -o pipefail
+
+mathup () {
+   formula=$(rofi -dmenu -p "Math: ") || exit 0
+   answer=$(echo "$formula" | bc -l)
+   echo $answer | copy
+   notify-send $answer
+}
+
+mathup

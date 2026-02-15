@@ -83,7 +83,9 @@ default_border pixel 1
 #
 # Basics:
 #
-    bindsym $mod+x exec swaylock
+    set $mybin ~/.local/bin
+    bindsym $mod+x exec $mybin/poweroptions
+    bindsym $mod+c exec $mybin/maths
 
     # Start a terminal
     bindsym $mod+Return exec $term
@@ -168,6 +170,8 @@ default_border pixel 1
     set $snw ~/.local/bin/sway-new-workspace
     bindsym $mod+n exec $snw open
     bindsym $mod+Shift+n exec $snw move
+    bindsym $mod+Shift+d exec $snw open; exec $menu
+    bindsym $mod+Shift+Return exec $snw open; exec $term
 #
 # Layout stuff:
 #

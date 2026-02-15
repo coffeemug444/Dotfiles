@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+set -e
+set -u
+set -o pipefail
+
+shutdown () {
+   systemctl poweroff
+}
+
+reboot() {
+   systemctl reboot
+}
+
+lock() {
+   swaylock
+}
+
+selected () {
+   choice=$(printf "Shutdown\\nReboot\\nLock" | rofi -dmenu -i) || exit 0
+   case $choice in
+      Shutdown) shutdown ;;
+      Reboot) reboot ;;
+      Lock) lock ;;
+      *) exit ;;
+   esac
+}
+
+selected

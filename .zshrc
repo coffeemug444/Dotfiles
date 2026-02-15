@@ -112,6 +112,8 @@ fi
 # Then, source plugins and add commands to $PATH
 zplug load
 
+source <(fzf --zsh)
+
 # plugin settings
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#666f70"
 
