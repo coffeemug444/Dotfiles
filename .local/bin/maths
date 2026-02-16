@@ -3,11 +3,47 @@ set -e
 set -u
 set -o pipefail
 
-mathup () {
-   formula=$(rofi -dmenu -p "Math: ") || exit 0
-   answer=$(echo "$formula" | bc -l)
+equate() {
+   answer=$(echo "$1" | bc -l)
    echo $answer | copy
    notify-send $answer
+}
+
+to_hex() {
+   to_convert=$(rofi -dmenu -p "To hex") || exit 0
+   equate "obase=16; ${to_convert^^}"
+}
+
+from_hex() {
+   to_convert=$(rofi -dmenu -p "From hex") || exit 0
+   equate "ibase=16; ${to_convert^^}"
+}
+
+to_binary() {
+   to_convert=$(rofi -dmenu -p "To binary") || exit 0
+   equate "obase=2; ${to_convert^^}"
+}
+
+from_binary() {
+   to_convert=$(rofi -dmenu -p "From binary") || exit 0
+   equate "ibase=2; ${to_convert^^}"
+}
+
+mathup () {  
+   declare -A actions=(
+      ["From hex"]=from_hex
+      ["To hex"]=to_hex
+      ["From binary"]=from_binary
+      ["To binary"]=to_binary
+   )
+
+   choice=$(printf '%s\n' "${!actions[@]}" | sort | rofi -dmenu -p "Math") || exit 0
+
+   if [[ -n ${actions[$choice]:-} ]]; then
+      "${actions[$choice]}"
+   else
+      equate "$choice"
+   fi
 }
 
 mathup
