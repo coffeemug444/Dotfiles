@@ -16,9 +16,11 @@ return {
       vim.keymap.set("n", '<leader>F', function()
          vim.lsp.buf.format({ async = false })
       end);
-      vim.keymap.set("n", '<leader>gd', vim.lsp.buf.definition, opts)
-      vim.keymap.set("n", '<leader>gD', vim.lsp.buf.declaration, opts)
-      vim.keymap.set("n", '<leader>gt', vim.lsp.buf.type_definition, opts)
+      vim.keymap.set("n", '<leader>gd', require('telescope.builtin').lsp_type_definitions, opts)
+      vim.keymap.set("n", '<leader>gf', function()
+         require('telescope.builtin').lsp_document_symbols({ symbols={'function', 'method'}})
+      end, opts)
+      vim.keymap.set("n", '<leader>gr', require('telescope.builtin').lsp_references, opts)
       vim.lsp.config("lua_ls", {
          settings = {
             Lua = {
