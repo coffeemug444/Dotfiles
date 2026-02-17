@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+set -e
+set -u
+set -o pipefail
+
+# I would prefer these pulled from
+# my environment variables...
+# Maybe in the future
+EDITOR=nvim
+TERM=kitty
+
+mkdir -p ~/Notes
+
+note_from_stdin() {
+   cat > ~/Notes/$(today)-$1
+}
+
+note_exists() {
+   return $(printf '%s\n' "$(ls ~/Notes)" | grep -Fxq -- "$1")
+}
+
+new_note() {
+   existing_notes=$(ls ~/Notes)
+   note_name=$(printf "+\nscratch\n$existing_notes" | rofi -dmenu -p "Note ('+' for new note)") || exit 0
+
+   if [ $note_name == '+' ]; then
+      note_name=$(rofi -dmenu -p "New note name") || exit 0
+      exec $TERM $EDITOR ~/Notes/$(today)-$note_name
+   elif [ $note_name == "scratch" ]; then
+      exec $TERM $EDITOR $(mktemp)
+   elif note_exists $note_name; then
+      exec $TERM $EDITOR ~/Notes/$note_name
+   fi
+}
+
+if [ ! -t 0 ] && [ $# -eq 1 ]; then
+   note_from_stdin "$@"
+else
+   new_note
+fi
