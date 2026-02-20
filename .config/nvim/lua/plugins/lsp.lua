@@ -16,7 +16,7 @@ return {
       vim.keymap.set("n", '<leader>F', function()
          vim.lsp.buf.format({ async = false })
       end);
-      vim.keymap.set("n", '<leader>gd', require('telescope.builtin').lsp_type_definitions, opts)
+      vim.keymap.set("n", '<leader>gd', vim.lsp.buf.definition, opts)
       vim.keymap.set("n", '<leader>gf', function()
          require('telescope.builtin').lsp_document_symbols({ symbols={'function', 'method'}})
       end, opts)
