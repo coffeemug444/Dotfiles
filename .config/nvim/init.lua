@@ -43,6 +43,8 @@ vim.keymap.set({ 'i', 'n' }, '<M-k>', function() vim.cmd('move .-2') end, opts)
 vim.keymap.set({ 'i', 'n' }, '<M-j>', function() vim.cmd('move .1') end, opts)
 vim.keymap.set('n', '<C-w>c', ':tabclose<CR>', opts)
 vim.keymap.set('n', '<tab>', 'i<tab>', opts)
+vim.keymap.set('i', '<S-Tab>', '<C-d>', opts)
+vim.keymap.set('n', '<S-Tab>', '<<', opts)
 
 vim.api.nvim_set_keymap("n", "<leader>cc", ":!cmake -S . -B build<CR>", opts)                        -- configure
 vim.api.nvim_set_keymap("n", "<leader>cb", ":!cmake -S . -B build && cmake --build build<CR>", opts) -- configure and build
