@@ -6,7 +6,7 @@
 
    "modules-left": ["sway/workspaces"],
    "modules-center": [],
-   "modules-right": ["network", "temperature", "backlight", "pulseaudio", "pulseaudio/slider", "battery", "clock", "tray"],
+   "modules-right": ["temperature", "backlight", "pulseaudio", "pulseaudio/slider", "battery", "clock", "tray"],
 
 
    "sway/workspaces": {
@@ -50,18 +50,6 @@
       "format-icons": ["", "", "", "", ""],
       "interval": 30
    },
-
-
-   "network": {
-      "format-wifi": "  {signalStrength}%",
-      "format-ethernet": " ",
-      "tooltip-format": "{ifname}: {gwaddr}",
-
-      "format-disconnected": "Disconnected ⚠",
-      "on-click-right": "bash ~/.config/waybar/rofi-wifi-menu/rofi-wifi-menu.sh",
-      "interval": 60
-   },
-
 
    "temperature": {
       "thermal-zone": 0,

@@ -3,10 +3,12 @@ set -e
 set -u
 set -o pipefail
 
+PATH=$PATH:$HOME/.local/bin
+
 equate() {
    answer=$(echo "$1" | bc -l)
-   echo $answer | copy
    notify-send $answer
+   echo $answer | copy
 }
 
 to_hex() {

@@ -102,7 +102,6 @@ local plugin_files = {
    "plugins.surround",
    "plugins.commentary",
    "plugins.friendly-snippets",
-   "plugins.rainbow",
    "plugins.treesitter",
    "plugins.multicursor",
    "plugins.dap",

@@ -41,6 +41,9 @@ set $menu rofi -show drun
 exec_always ~/.local/bootscripts/boot
 exec_always --no-startup-id dunst
 exec wl-clip-persist --clipboard both
+exec_always --no-startup-id fcitx5 -d
+exec_always nm-applet
+
 
 # lock on startup
 exec swaylock
@@ -86,6 +89,7 @@ default_border pixel 1
     set $mybin ~/.local/bin
     bindsym $mod+x exec $mybin/poweroptions
     bindsym $mod+c exec $mybin/maths
+    bindsym $mod+o exec $mybin/notes
 
     # Start a terminal
     bindsym $mod+Return exec $term
