@@ -7,12 +7,14 @@ return {
       "nvim-telescope/telescope-live-grep-args.nvim",
    },
    config = function()
-      vim.keymap.set('n', '<C-f>', ':Telescope find_files<CR>', opts)
-      vim.keymap.set('n', '<C-g>', ':lua require(\'telescope\').extensions.live_grep_args.live_grep_args()<CR>', opts)
       local telescope = require('telescope')
+      vim.keymap.set('n', '<C-f>', require('telescope.builtin').find_files)
+      vim.keymap.set('n', '<C-g>', telescope.extensions.live_grep_args.live_grep_args)
+      vim.keymap.set('n', '<C-b>', require('telescope.builtin').buffers)
       telescope.setup{
          pickers = {
             find_files = {
+               find_command = { 'fd' },
                hidden = true,  -- show hidden files like dotfiles
             },
          },

@@ -65,6 +65,8 @@ vim.api.nvim_create_user_command(
   "vert new | set buftype=nofile | read ++edit # | 0d_ | diffthis | wincmd p | diffthis | wincmd p",
   {}
 )
+vim.keymap.set('n', 'C', ":DiffOrig<CR>", opts)
+vim.keymap.set('n', '<leader>w', ":w<CR>", opts)
 
 --=============================
 -- Plugins
@@ -100,7 +102,7 @@ local plugin_files = {
    "plugins.surround",
    "plugins.commentary",
    "plugins.friendly-snippets",
-   -- "plugins.rainbow",
+   "plugins.rainbow",
    "plugins.treesitter",
    "plugins.multicursor",
    "plugins.dap",
