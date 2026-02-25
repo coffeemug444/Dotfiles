@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+set -e
+set -u
+set -o pipefail
+
+enddate=$1
+
+startyear=$(date +"%Y")
+endyear=$(date -d "$enddate" +"%Y")
+
+if [[ $startyear -eq $endyear ]]; then
+   startday=$(date +"%-j")
+   endday=$(date -d "$enddate" +"%-j")
+   if [[ $startday -le $endday ]]; then
+      echo $((endday - startday))
+      exit 0
+   fi
+   # need to move endday to next year
+   enddate=$(date -d "$(date -d "$enddate" +"%d %b") $(( $endyear + 1 ))")
+fi
+
+daysbetween=$(($(date -d "dec 31 ${startyear}" +"%-j") - $startday + 1))
+startyear=$(($startyear + 1))
+
+while [[ $startyear -lt $endyear ]]; do
+   daysbetween=$(($daysbetween + $(date -d "dec 31 ${startyear}" +"%-j")))
+   startyear=$(($startyear + 1))
+done
+
+echo $(($daysbetween + $(date -d "$enddate" +"%-j")))
+
