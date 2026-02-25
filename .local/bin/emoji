@@ -9,6 +9,7 @@ set -u
 set -o pipefail
 
 emoji="\
+¯\_(ツ)_/¯ shruggie shrug w/e we
 $ dollar
 ¢ cent
 £ pound gbp
