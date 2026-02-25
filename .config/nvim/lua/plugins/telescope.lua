@@ -11,6 +11,7 @@ return {
       vim.keymap.set('n', '<C-f>', require('telescope.builtin').find_files)
       vim.keymap.set('n', '<C-g>', telescope.extensions.live_grep_args.live_grep_args)
       vim.keymap.set('n', '<C-b>', require('telescope.builtin').buffers)
+      vim.keymap.set('n', '<leader>gi', require('telescope.builtin').lsp_implementations)
       telescope.setup{
          pickers = {
             find_files = {
