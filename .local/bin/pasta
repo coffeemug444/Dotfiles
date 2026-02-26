@@ -8,7 +8,7 @@ if hash pbpaste 2>/dev/null; then
 elif hash xclip 2>/dev/null; then
 	exec xclip -selection clipboard -o
 elif hash waypaste 2>/dev/null; then
-	exec waypaste
+	exec wl-paste
 else
 	echo 'cannot find a paste program' >&2
 	exit 1
