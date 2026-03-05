@@ -8,7 +8,7 @@ if hash pbcopy 2>/dev/null; then
 	cmd='pbcopy'
 elif hash xclip 2>/dev/null; then
 	cmd='xclip -selection clipboard'
-elif hash waycopy 2>/dev/null; then
+elif hash wl-copy 2>/dev/null; then
 	cmd='wl-copy'
 else
 	echo 'cannot find a copy program' >&2
