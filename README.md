@@ -26,12 +26,13 @@ And if you're kind of freaky:
  * waybar
 
 oneline for arch:
-`sudo pacman -S stow zsh rofi kitty nvim fd ripgrep clang yazi tmux bash-language-server shellcheck shfmt sway waybar`
+`sudo pacman -S stow zsh rofi kitty nvim fd ripgrep cmake clang yazi tmux bash-language-server shellcheck shfmt sway waybar`
  > ⚠️ you'll still need to install tree-sitter-cli and lua-language-server yourself
 
 
 If you're starting from a fresh install you'll need to do the following:
-1. Clone this repo to ~/.dotfiles
-2. `cd` into it and run `stow .`
-3. run `ya pkg add yazi-rs/plugins:smart-enter`
-4. run `git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm`
+1. run `mkdir -p ~/.config/{kitty,nvim/lua/plugins,sway,tmux,waybar,yazi,zsh} ~/.local/bin ~/Templates`
+2. Clone this repo to ~/.dotfiles
+3. `cd` into it and run `stow .`
+4. run `ya pkg add yazi-rs/plugins:smart-enter`
+5. run `git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm`
