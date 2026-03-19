@@ -21,15 +21,14 @@ note_exists() {
 
 new_note() {
    existing_notes=$(ls ~/Notes)
-   note_name=$(printf "+\nscratch\n$existing_notes" | rofi -dmenu -p "Note ('+' for new note)") || exit 0
+   note_name=$(printf "+\nscratch\n$existing_notes" | rofi -dmenu -p "Note") || exit 0
 
-   if [ $note_name == '+' ]; then
-      note_name=$(rofi -dmenu -p "New note name") || exit 0
-      exec $TERM $EDITOR ~/Notes/$(today)-$note_name
-   elif [ $note_name == "scratch" ]; then
+   if [ $note_name == "scratch" ]; then
       exec $TERM $EDITOR $(mktemp)
    elif note_exists $note_name; then
-      exec $TERM $EDITOR ~/Notes/$note_name
+      exec $TERM $EDITOR "$HOME/Notes/$note_name"
+   else
+      exec $TERM $EDITOR "$HOME/Notes/$(today)-$note_name"
    fi
 }
 
