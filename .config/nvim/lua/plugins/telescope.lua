@@ -15,7 +15,7 @@ return {
       telescope.setup{
          pickers = {
             find_files = {
-               find_command = { 'fd' },
+               find_command = { 'fd', '--exclude', '.git' },
                hidden = true,  -- show hidden files like dotfiles
             },
          },
