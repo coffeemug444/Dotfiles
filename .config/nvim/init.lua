@@ -67,6 +67,7 @@ vim.api.nvim_create_user_command(
 )
 vim.keymap.set('n', 'C', ":DiffOrig<CR>", opts)
 vim.keymap.set('n', '<leader>w', ":w<CR>", opts)
+vim.keymap.set('n', '<leader>q', ":q<CR>", opts)
 
 --=============================
 -- Plugins
