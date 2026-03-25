@@ -1,9 +1,9 @@
- -- These diagnostic keymaps are created unconditionally when Nvim starts:
- -- ]d jumps to the next diagnostic in the buffer
- -- [d jumps to the previous diagnostic in the buffer
- -- ]D jumps to the last diagnostic in the buffer
- -- [D jumps to the first diagnostic in the buffer
- -- <C-w>d shows diagnostic at cursor in a floating window
+-- These diagnostic keymaps are created unconditionally when Nvim starts:
+-- ]d jumps to the next diagnostic in the buffer
+-- [d jumps to the previous diagnostic in the buffer
+-- ]D jumps to the last diagnostic in the buffer
+-- [D jumps to the first diagnostic in the buffer
+-- <C-w>d shows diagnostic at cursor in a floating window
 
 return {
    'neovim/nvim-lspconfig',
@@ -20,12 +20,12 @@ return {
    },
    config = function()
       local opts = { noremap = true, silent = true }
-      vim.keymap.set("n", '<leader>F', function()
+      vim.keymap.set({ "n", "v" }, '<leader>F', function()
          vim.lsp.buf.format({ async = false })
       end);
       vim.keymap.set("n", '<leader>gd', vim.lsp.buf.definition, opts)
       vim.keymap.set("n", '<leader>gf', function()
-         require('telescope.builtin').lsp_document_symbols({ symbols={'function', 'method'}})
+         require('telescope.builtin').lsp_document_symbols({ symbols = { 'function', 'method' } })
       end, opts)
       vim.keymap.set("n", '<leader>gr', require('telescope.builtin').lsp_references, opts)
       vim.lsp.config("lua_ls", {
@@ -59,10 +59,14 @@ return {
             text = {
                [vim.diagnostic.severity.ERROR] = '',
                [vim.diagnostic.severity.WARN] = '',
+               [vim.diagnostic.severity.HINT] = '',
+               [vim.diagnostic.severity.INFO] = '',
             },
             numhl = {
                [vim.diagnostic.severity.ERROR] = 'ErrorMsg',
                [vim.diagnostic.severity.WARN] = 'WarningMsg',
+               [vim.diagnostic.severity.HINT] = 'DiagnosticHint',
+               [vim.diagnostic.severity.INFO] = 'DiagnosticInfo',
             },
          },
       })
