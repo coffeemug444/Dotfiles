@@ -1,3 +1,10 @@
+ -- These diagnostic keymaps are created unconditionally when Nvim starts:
+ -- ]d jumps to the next diagnostic in the buffer
+ -- [d jumps to the previous diagnostic in the buffer
+ -- ]D jumps to the last diagnostic in the buffer
+ -- [D jumps to the first diagnostic in the buffer
+ -- <C-w>d shows diagnostic at cursor in a floating window
+
 return {
    'neovim/nvim-lspconfig',
    dependencies = {
@@ -41,19 +48,23 @@ return {
       })
 
       vim.diagnostic.config({
-         virtual_text = false, -- shows messages inline
-         signs = {
-            severity = { min = vim.diagnostic.severity.ERROR },
-         },
-         underline = true, -- underlines problematic code
+         underline = true,
          update_in_insert = false,
          severity_sort = true,
          float = true,
-      })
-      vim.fn.sign_define("DiagnosticSignError", {
-         text = "⛔",
-         texthl = "DiagnosticSignError",
-         numhl = "",
+         virtual_lines = {
+            severity = { min = vim.diagnostic.severity.ERROR },
+         },
+         signs = {
+            text = {
+               [vim.diagnostic.severity.ERROR] = '',
+               [vim.diagnostic.severity.WARN] = '',
+            },
+            numhl = {
+               [vim.diagnostic.severity.ERROR] = 'ErrorMsg',
+               [vim.diagnostic.severity.WARN] = 'WarningMsg',
+            },
+         },
       })
 
       local format_on_write = function()
