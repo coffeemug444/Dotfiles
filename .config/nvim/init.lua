@@ -38,11 +38,6 @@ vim.keymap.set('n', '<C-u>', '<C-u>zz', opts)
 vim.keymap.set('x', '<leader>p', '"_dP', opts)
 vim.keymap.set('n', '<leader>cdh', ':cd %:h<CR>', opts)
 vim.keymap.set('t', '<esc><esc>', '<c-\\><c-n>', opts)
-vim.keymap.set({ 'i', 'n' }, '<M-k>', function() vim.cmd('move .-2') end, opts)
-vim.keymap.set({ 'i', 'n' }, '<M-j>', function() vim.cmd('move .1') end, opts)
-vim.keymap.set('n', '<tab>', 'i<tab>', opts)
-vim.keymap.set('i', '<S-Tab>', '<C-d>', opts)
-vim.keymap.set('n', '<S-Tab>', '<<', opts)
 
 vim.api.nvim_set_keymap("n", "<leader>cc", ":!cmake -S . -B build<CR>", opts)                        -- configure
 vim.api.nvim_set_keymap("n", "<leader>cb", ":!cmake -S . -B build && cmake --build build<CR>", opts) -- configure and build
@@ -87,19 +82,22 @@ vim.opt.rtp:prepend(lazypath)
 
 -- Add plugins
 local plugin_files = {
+   -- tpope
+   "plugins.fugitive",
+   "plugins.endwise",
+   "plugins.surround",
+   "plugins.commentary",
+   "plugins.unimpaired",
+   -- others
    "plugins.telescope",
    "plugins.yazi",
    "plugins.vim-code-dark",
-   "plugins.fugitive",
    "plugins.lsp",
    "plugins.blink",
    "plugins.vimbegood",
    "plugins.gitsigns",
    "plugins.fswitch",
    "plugins.harpoon",
-   "plugins.endwise",
-   "plugins.surround",
-   "plugins.commentary",
    "plugins.friendly-snippets",
    "plugins.treesitter",
    "plugins.multicursor",
