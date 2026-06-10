@@ -1,3 +1,3 @@
 return {
-   "trvrplk/vim-endwise"
+   "tpope/vim-endwise"
 }

@@ -92,6 +92,7 @@ local plugin_files = {
    "plugins.commentary",
    "plugins.unimpaired",
    -- others
+   "plugins.autopairs",
    "plugins.telescope",
    "plugins.yazi",
    "plugins.vim-code-dark",

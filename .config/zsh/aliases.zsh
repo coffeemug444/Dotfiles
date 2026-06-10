@@ -45,7 +45,7 @@ copy_template() {
    git add -A
    git commit -m "Initial commit"
    copy_template_extras
-   background cmake -S . -B build && cmake --build build
+   background cmake -S . -B build && cmake --build build -j$(nproc)
    $EDITOR ./src/main.cpp
 }
 
