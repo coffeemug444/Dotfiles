@@ -39,11 +39,14 @@ vim.keymap.set('x', '<leader>p', '"_dP', opts)
 vim.keymap.set('n', '<leader>cdh', ':cd %:h<CR>', opts)
 vim.keymap.set('t', '<esc><esc>', '<c-\\><c-n>', opts)
 
-vim.api.nvim_set_keymap("n", "<leader>cc", ":!cmake -S . -B build<CR>", opts)                        -- configure
-vim.api.nvim_set_keymap("n", "<leader>cb", ":!cmake -S . -B build && cmake --build build<CR>", opts) -- configure and build
+local configure = "cmake -S . -B build"
+local build = "cmake --build build -j$(nproc)"
+
+vim.api.nvim_set_keymap("n", "<leader>cc", ":!" .. configure .. "<CR>", opts)                        -- configure
+vim.api.nvim_set_keymap("n", "<leader>cb", ":!" .. configure .. " && " .. build .. "<CR>", opts) -- configure and build
 vim.api.nvim_set_keymap("n", "<leader>cl", ":!cmake --build build --target clean<CR>", opts)         -- clean
 vim.api.nvim_set_keymap("n", "<leader>ct", ":!ctest --output-on-failure<CR>", opts)                  -- test
-vim.api.nvim_set_keymap("n", "<leader>cr", ":!cmake -S . -B build && cmake --build build && ./build/main<CR>", opts) -- configure build and run
+vim.api.nvim_set_keymap("n", "<leader>cr", ":!" .. configure .. " && " .. build .. " && ./build/main<CR>", opts) -- configure build and run
 -- autoreconfigure on saving cmake files
 vim.api.nvim_create_autocmd("BufWritePost", {
    pattern = { "CMakeLists.txt", "sources.cmake" },
