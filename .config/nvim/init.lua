@@ -45,14 +45,14 @@ local build = "cmake --build build -j$(nproc)"
 
 vim.api.nvim_set_keymap("n", "<leader>cc", ":!" .. configure .. "<CR>", opts)                        -- configure
 vim.api.nvim_set_keymap("n", "<leader>cb", ":!" .. configure .. " && " .. build .. "<CR>", opts) -- configure and build
-vim.api.nvim_set_keymap("n", "<leader>cl", ":!cmake --build build --target clean<CR>", opts)         -- clean
+vim.api.nvim_set_keymap("n", "<leader>cl", ":!" .. build .. " --target clean<CR>", opts)         -- clean
 vim.api.nvim_set_keymap("n", "<leader>ct", ":!ctest --output-on-failure<CR>", opts)                  -- test
 vim.api.nvim_set_keymap("n", "<leader>cr", ":!" .. configure .. " && " .. build .. " && ./build/main<CR>", opts) -- configure build and run
 -- autoreconfigure on saving cmake files
 vim.api.nvim_create_autocmd("BufWritePost", {
    pattern = { "CMakeLists.txt", "sources.cmake" },
    callback = function()
-      vim.cmd("!cmake -S . -B build &")
+      vim.cmd("!" .. configure .. " &")
       print("CMake reconfigured")
    end,
 })
