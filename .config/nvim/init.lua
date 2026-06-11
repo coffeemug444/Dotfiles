@@ -20,6 +20,7 @@ opt.clipboard = "unnamedplus"
 opt.colorcolumn = "105"
 opt.winborder = "rounded"
 opt.swapfile = false
+opt.updatetime = 100
 
 --=============================
 -- Key mappings
@@ -87,6 +88,7 @@ vim.opt.rtp:prepend(lazypath)
 local plugin_files = {
    -- tpope
    "plugins.fugitive",
+   "plugins.fugitive-gitlab",
    "plugins.endwise",
    "plugins.surround",
    "plugins.commentary",
@@ -99,7 +101,7 @@ local plugin_files = {
    "plugins.lsp",
    "plugins.blink",
    "plugins.vimbegood",
-   "plugins.gitsigns",
+   "plugins.gitgutter",
    "plugins.fswitch",
    "plugins.harpoon",
    "plugins.friendly-snippets",
