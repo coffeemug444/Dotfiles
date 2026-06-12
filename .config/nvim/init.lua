@@ -88,12 +88,12 @@ vim.opt.rtp:prepend(lazypath)
 local plugin_files = {
    -- tpope
    "plugins.fugitive",
-   "plugins.fugitive-gitlab",
    "plugins.endwise",
    "plugins.surround",
    "plugins.commentary",
    "plugins.unimpaired",
    -- others
+   "plugins.markdown",
    "plugins.autopairs",
    "plugins.telescope",
    "plugins.yazi",
@@ -102,9 +102,6 @@ local plugin_files = {
    "plugins.blink",
    "plugins.vimbegood",
    "plugins.gitgutter",
-   "plugins.fswitch",
-   "plugins.harpoon",
-   "plugins.friendly-snippets",
    "plugins.treesitter",
    "plugins.multicursor",
    "plugins.dap",
