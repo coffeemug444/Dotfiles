@@ -93,6 +93,7 @@ local plugin_files = {
    "plugins.commentary",
    "plugins.unimpaired",
    -- others
+   "plugins.fswitch",
    "plugins.markdown",
    "plugins.autopairs",
    "plugins.telescope",
