@@ -2,10 +2,34 @@
 
 ## Regular vim
 
+### Useful weird stuff
+
 **^o** (insert mode)
  * leave insert mode to do a single command _eg._
    * `^odiw` delete current word
    * `^op` paste
+
+**:r**
+ * reads output of file/command into current buffer _eg._
+   * `:r my_text.txt` pastes the content of `my_text.txt` into the current buffer
+   * `:r !date` pastes the date into the current buffer
+
+**:s/pattern/replacement/**
+ * replaces first match of `pattern` with `replacement` on the current line
+   * `:s/pattern/replacement/g` replaces all instances of `pattern`
+   * `:%s/pattern/replacement/g` replaces all instances in the entire file
+
+**:**_[selection]_**!**_[cmd]_
+ * pipes selection into [cmd], and replaces it with the [cmd]'s' output _eg._
+   * `:%!sort` sorts all lines in the buffer
+   * `:.!bc` equates the value of the current line as a math equation
+   * `:'<,'>!nl -ba` add line numbers to a visually selected region
+
+**:g :v**
+ * global/inverse commands; run commands on all matching/non-matching lines _eg._
+   * `:g/foo/d` delete all lines that match `foo`
+   * `:v/foo/normal @q` run `@q` on all lines that don't match `foo`
+   * `:g/foo/s/bar/baz/g` substitute bar for baz on all lines that match `foo`
 
 ### Movement
 
@@ -112,6 +136,20 @@ NB. Most edit commands accept a repeat term [n], eg. `y3j` yanks the next 3 line
      * `g~e`: invert case until end of word
    * also try `gU[movement]` and `gu[movement]` for upper/lower case of movements
 
+**^w ^u**
+ * delete word/line before cursor
+   * shorthand for `^odb` and `^od^`
+
+**^x^l**
+ * line completion
+   * `^e` to exit without selecting
+
+**^r**_[reg]_
+ * pastes from register [reg]
+
+**^r=**
+ * expression register _eg._
+  * `^r=5*5+3` pastes `28`
 
 ### Macros
 
@@ -289,8 +327,11 @@ NB. Most edit commands accept a repeat term [n], eg. `y3j` yanks the next 3 line
 **o**
  * goto begin/end of selection
 
-**gv
+**gv**
  * reselect previous selection
+
+**gi**
+ * go to previous insert mode location and enter insert mode
 
 **I A**
  * prepend/append to every line in selection
@@ -299,7 +340,7 @@ NB. Most edit commands accept a repeat term [n], eg. `y3j` yanks the next 3 line
 
 ### gitgutter
 
-**]h [h**
+**]c [c**
  * next/previous hunk
 
 **<leader>hp**
@@ -371,8 +412,6 @@ NB. left brackets `{([` include spaces, eg. `[ surrounded ]`
 
 **gc**[movement] **gcc**
  * comments out lines
-
-
 
 ## Plugins
 
@@ -450,7 +489,6 @@ NB. left brackets `{([` include spaces, eg. `[ surrounded ]`
 
 **gc**[movement] **gcc**
  * comments out lines
-
 
 ### treesitter
 
