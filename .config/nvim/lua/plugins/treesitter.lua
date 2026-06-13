@@ -14,7 +14,7 @@ return {
       vim.wo[0][0].foldmethod = 'expr'
       vim.wo[0][0].foldlevel = 99 -- all folds fully expanded
 
-      ts.install{ 'cpp' }
+      ts.install{ 'cpp', 'html', "md" }
 
       vim.api.nvim_create_autocmd('FileType', {
          pattern = { 'cpp' },

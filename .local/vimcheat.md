@@ -1,8 +1,28 @@
-# Vim shortcuts
+<h1>Vim Shortcuts</h1>
 
-## Regular vim
+<h2>Table of Contents</h2>
 
-### Useful weird stuff
+ * [Regular vim](#regular-vim)
+   * [Useful weird stuff](#useful-weird-stuff)
+   * [Movement](#movement)
+   * [Marks and Jumping](#marks-and-jumping)
+   * [Editing](#editing)
+   * [Macros](#macros)
+   * [Registers](#registers)
+   * [Visual Mode](#visual-mode)
+     * [Inside Visual Mode](#inside-visual-mode)
+ * [Plugins](#plugins)
+   * [Gitgutter](#gitgutter)
+   * [Fugitive](#fugitive)
+   * [Inside Git Interface](#inside-git-interface)
+   * [Unimpaired](#unimpaired)
+   * [Surround](#surround)
+   * [Commentary](#commentary)
+   * [Treesitter](#treesitter)
+
+<h2 id="regular-vim">Regular vim</h2>
+
+<h3 id="useful-weird-stuff">Useful weird stuff</h3>
 
 **\^o** (insert mode)
 
@@ -41,7 +61,11 @@
  * lets you type in literal characters _eg._
    * `:s/ /<C-v><enter>/g` replaces all spaces with newlines
 
-### Movement
+**gi**
+
+ * go to previous insert mode location and enter insert mode
+
+<h3 id="movement">Movement</h3>
 
 **h j k l**
 
@@ -62,7 +86,7 @@
 **b B, e E, w W**
 
  * start of previous word/WORD
- * end of work/WORD
+ * end of word/WORD
  * start of next word/WORD
 
 **\^d \^u**
@@ -93,13 +117,13 @@
 
  * jump to matching bracket
 
-### Marks and jumping
+<h3 id="marks-and-jumping">Marks and jumping</h3>
 
 **\^o \^i**
 
  * previous/next jump location
 
-**m**_[alpha]_**`**_[alpha]_
+**m**_[alpha]_** `**_[alpha]_
 
  * set/jump to mark [alpha]
    * NB. capital letters allow marks between files
@@ -132,7 +156,7 @@
 
  * last change position
 
-### Editing
+<h3 id="editing">Editing</h3>
 
 NB. Most edit commands accept a repeat term [n], eg. `y3j` yanks the next 3 lines
 
@@ -235,7 +259,7 @@ NB. Most edit commands accept a repeat term [n], eg. `y3j` yanks the next 3 line
  * expression register _eg._
    * `^r=5*5+3` pastes `28`
 
-### Macros
+<h3 id="macros">Macros</h3>
 
 **q**[_alpha_]
 
@@ -250,7 +274,7 @@ NB. Most edit commands accept a repeat term [n], eg. `y3j` yanks the next 3 line
 
  * repeat last run macro
 
-### Registers
+<h3 id="registers">Registers</h3>
 
 **:reg**
 
@@ -288,7 +312,7 @@ NB. Most edit commands accept a repeat term [n], eg. `y3j` yanks the next 3 line
 
  * filename
 
-### Visual mode
+<h3 id="visual-mode">Visual mode</h3>
 
 **v**
 
@@ -302,7 +326,7 @@ NB. Most edit commands accept a repeat term [n], eg. `y3j` yanks the next 3 line
 
  * enter visual block mode
 
-#### Inside visual mode
+<h4 id="inside-visual-mode">Inside visual mode</h4>
 
 **o**
 
@@ -312,17 +336,13 @@ NB. Most edit commands accept a repeat term [n], eg. `y3j` yanks the next 3 line
 
  * reselect previous selection
 
-**gi**
-
- * go to previous insert mode location and enter insert mode
-
 **I A**
 
  * prepend/append to every line in selection
 
-## Plugins
+<h2 id="plugins">Plugins</h2>
 
-### gitgutter
+<h3 id="gitgutter">Gitgutter</h3>
 
 **]c [c**
 
@@ -340,7 +360,7 @@ NB. Most edit commands accept a repeat term [n], eg. `y3j` yanks the next 3 line
 
  * stage hunk
 
-### fugitive
+<h3 id="fugitive">Fugitive</h3>
 
 **:Git blame**
 
@@ -354,7 +374,7 @@ NB. Most edit commands accept a repeat term [n], eg. `y3j` yanks the next 3 line
 
  * open git interface
 
-#### Inside git interface
+<h4 id="inside-git-interface">Inside git interface</h4>
 
 **=**
 
@@ -376,7 +396,7 @@ NB. Most edit commands accept a repeat term [n], eg. `y3j` yanks the next 3 line
 
 * commit staged files
 
-### unimpaired
+<h3 id="unimpaired">Unimpaired</h3>
 
 **[e ]e**
 
@@ -386,7 +406,7 @@ NB. Most edit commands accept a repeat term [n], eg. `y3j` yanks the next 3 line
 
  * insert blank line above/below
 
-### surround
+<h3 id="surround">Surround</h3>
 
 supports surrounding text with bracket types ()[]{}<html_tags> etc.
 NB. left brackets `{([` include spaces, eg. `[ surrounded ]`
@@ -410,13 +430,13 @@ NB. left brackets `{([` include spaces, eg. `[ surrounded ]`
 
  * surrounds selection with [type]
 
-### commentary
+<h3 id="commentary">Commentary</h3>
 
 **gc**[movement] **gcc**
 
  * comments out lines
 
-### treesitter
+<h3 id="treesitter">Treesitter</h3>
 
 **za**
 
