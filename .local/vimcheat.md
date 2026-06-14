@@ -84,7 +84,7 @@
 
  * start of line/end of line
 
-<b>^ _g</b>
+<b>^ g_</b>
 
  * start/end of non-whitespace text
 
@@ -101,6 +101,10 @@
 **f F [char]**
 
  * next/previous [char]
+
+**t T [char]**
+
+ * until/back until [char]
 
 **; ,**
 
@@ -230,7 +234,7 @@ NB. Most edit commands accept a repeat term [n], eg. `y3j` yanks the next 3 line
 
 **gn gN**
 
- * visually selectd next/previous matched pattern
+ * visually selected next/previous matched pattern
    * very useful in commands like `cgn` to quickly edit patterns
 
 **.**
