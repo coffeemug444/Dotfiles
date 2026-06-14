@@ -33,4 +33,7 @@ $ <CTRL+U> [...] <CTRL+Y>
 # push this location to a stack
 $ pushd directory/to/move/to # saves current dir to stack, cd's to new dir
 $ popd # return to saved dir
+
+# prevent TBC processes from starting up
+$ touch /activating
 "
