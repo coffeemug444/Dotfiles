@@ -30,6 +30,11 @@
    * `^odiw` delete current word
    * `^op` paste
 
+**\^x\^l** (insert mode)
+
+ * line completion
+   * `^e` to close suggestions
+
 **:r**
 
  * reads output of file/command into current buffer _eg._
