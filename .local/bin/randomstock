@@ -1,0 +1,25 @@
+#!/usr/bin/env python3
+
+import json
+import re
+import random
+import subprocess
+
+result = subprocess.run(
+    ["curl", "-s", "-A", ".", "https://www.slickcharts.com/sp500"],
+    capture_output=True, text=True
+)
+
+match = re.search(r'sp500List:(\[.*?\])', result.stdout, re.DOTALL)
+if not match:
+    raise ValueError("sp500List not found")
+
+js = match.group(1)
+js = re.sub(r'(\w+):', r'"\1":', js)
+js = re.sub(r':(-?)\.', r':\g<1>0.', js)
+
+sp500 = json.loads(js)
+
+weights = [item["weight"] for item in sp500]
+chosen = random.choices(sp500, weights=weights, k=1)[0]
+print(f'{chosen["rank"]}. {chosen["symbol"]} - {chosen["name"]}')
