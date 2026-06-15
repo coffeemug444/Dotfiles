@@ -1,16 +1,13 @@
 #include <SFML/Graphics.hpp>
-#include <SFML/Graphics/RenderWindow.hpp>
-#include <SFML/System/Vector2.hpp>
-#include <SFML/Window/Event.hpp>
-#include <SFML/Window/VideoMode.hpp>
-
+#include <SFML/System.hpp>
+#include <SFML/Window.hpp>
 
 
 int main()
 {
-   sf::RenderWindow window{sf::VideoMode{sf::Vector2u{500,500}}, "My Window"};
+   constexpr sf::Vector2f WINDOW_SIZE{500,500};
+   sf::RenderWindow window{sf::VideoMode{sf::Vector2u{WINDOW_SIZE}}, "My Window"};
 
-   window.display();
 
    while (window.isOpen())
    {
@@ -20,5 +17,8 @@ int main()
             window.close();
          }
       );
+      window.clear();
+      // draw objects
+      window.display();
    }
 }
