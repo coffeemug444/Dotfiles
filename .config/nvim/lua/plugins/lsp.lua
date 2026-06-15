@@ -41,10 +41,21 @@ return {
       -- to find names of lsp configs:
       -- :help lspconfig-all
       vim.lsp.enable({
+         'rust_analyzer',
          'bashls',
          'clangd',
          'lua_ls',
          'pylsp',
+      })
+
+      vim.lsp.config('rust_analyzer', {
+         settings = {
+            ['rust-analyzer'] = {
+               diagnostics = {
+                  enable = true;
+               }
+            }
+         }
       })
 
       vim.diagnostic.config({
