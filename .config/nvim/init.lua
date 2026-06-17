@@ -46,6 +46,14 @@ vim.keymap.set("n", "<leader>cl", ":!" .. build .. " --target clean<CR>", opts) 
 vim.keymap.set("n", "<leader>ct", ":!ctest --output-on-failure<CR>", opts)                  -- test
 vim.keymap.set("n", "<leader>cr", ":!" .. configure .. " && " .. build .. " && ./build/main<CR>", opts) -- configure build and run
 
+-- alt + {movement} works in insert mode
+vim.keymap.set("i", "<M-h>", "<C-o>h")
+vim.keymap.set("i", "<M-j>", "<C-o>j")
+vim.keymap.set("i", "<M-k>", "<C-o>k")
+vim.keymap.set("i", "<M-l>", "<C-o>l")
+vim.keymap.set("i", "<M-b>", "<C-o>b")
+vim.keymap.set("i", "<M-w>", "<C-o>w")
+
 -- autoreconfigure on saving cmake files
 vim.api.nvim_create_autocmd("BufWritePost", {
    pattern = { "CMakeLists.txt", "sources.cmake" },
