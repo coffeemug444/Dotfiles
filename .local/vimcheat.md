@@ -11,6 +11,7 @@
    * [Registers](#registers)
    * [Visual Mode](#visual-mode)
      * [Inside Visual Mode](#inside-visual-mode)
+   * [Spell check](#spell-check)
  * [Plugins](#plugins)
    * [Gitgutter](#gitgutter)
    * [Fugitive](#fugitive)
@@ -351,6 +352,26 @@ NB. Most edit commands accept a repeat term [n], eg. `y3j` yanks the next 3 line
 **I A**
 
  * prepend/append to every line in selection
+
+<h4 id="spell-check">Spell check</h4>
+
+**:set spell**
+
+ * enable spell checking
+    * `:set spelllang=en_us` to specify languages
+
+**[s ]s**
+
+ * previous/next misspelling
+
+**=z**
+
+ * open spelling suggestions
+
+**zg zw**
+
+ * mark word as good/wrong to your spellfile (`~/.config/nvim/spell/en.utf-8.add` by default)
+    * `zG` and `zW` adds to an internal word list that lasts only for the session
 
 <h2 id="plugins">Plugins</h2>
 
