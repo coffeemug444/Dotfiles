@@ -41,6 +41,9 @@
    * `:r my_text.txt` pastes the content of `my_text.txt` into the current buffer
    * `:r !date` pastes the date into the current buffer
 
+**do dp**
+ * diff obtain, diff put. Used when viewing a diff to put in/remove hunks
+
 **:s/pattern/replacement/**
 
  * replaces first match of `pattern` with `replacement` on the current line

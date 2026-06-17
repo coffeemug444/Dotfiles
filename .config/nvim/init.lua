@@ -31,9 +31,6 @@ vim.g.mapleader = " "
 
 -- regular mappings
 
-vim.keymap.set('n', '<leader>ve', ':edit ~/.config/nvim/init.lua<CR>', opts)
-vim.keymap.set('n', '<leader>ke', ':edit ~/.config/kitty/kitty.conf<CR>', opts)
-vim.keymap.set('n', '<leader>ze', ':edit ~/.zshrc<CR>', opts)
 vim.keymap.set('n', '<C-d>', '<C-d>zz', opts)
 vim.keymap.set('n', '<C-u>', '<C-u>zz', opts)
 vim.keymap.set('x', '<leader>p', '"_dP', opts)
@@ -43,11 +40,12 @@ vim.keymap.set('t', '<esc><esc>', '<c-\\><c-n>', opts)
 local configure = "cmake -S . -B build"
 local build = "cmake --build build -j$(nproc)"
 
-vim.api.nvim_set_keymap("n", "<leader>cc", ":!" .. configure .. "<CR>", opts)                        -- configure
-vim.api.nvim_set_keymap("n", "<leader>cb", ":!" .. configure .. " && " .. build .. "<CR>", opts) -- configure and build
-vim.api.nvim_set_keymap("n", "<leader>cl", ":!" .. build .. " --target clean<CR>", opts)         -- clean
-vim.api.nvim_set_keymap("n", "<leader>ct", ":!ctest --output-on-failure<CR>", opts)                  -- test
-vim.api.nvim_set_keymap("n", "<leader>cr", ":!" .. configure .. " && " .. build .. " && ./build/main<CR>", opts) -- configure build and run
+vim.keymap.set("n", "<leader>cc", ":!" .. configure .. "<CR>", opts)                        -- configure
+vim.keymap.set("n", "<leader>cb", ":!" .. configure .. " && " .. build .. "<CR>", opts) -- configure and build
+vim.keymap.set("n", "<leader>cl", ":!" .. build .. " --target clean<CR>", opts)         -- clean
+vim.keymap.set("n", "<leader>ct", ":!ctest --output-on-failure<CR>", opts)                  -- test
+vim.keymap.set("n", "<leader>cr", ":!" .. configure .. " && " .. build .. " && ./build/main<CR>", opts) -- configure build and run
+
 -- autoreconfigure on saving cmake files
 vim.api.nvim_create_autocmd("BufWritePost", {
    pattern = { "CMakeLists.txt", "sources.cmake" },
@@ -65,6 +63,10 @@ vim.api.nvim_create_user_command(
 vim.keymap.set('n', 'C', ":DiffOrig<CR>", opts)
 vim.keymap.set('n', '<leader>w', ":w<CR>", opts)
 vim.keymap.set('n', '<leader>q', ":q<CR>", opts)
+
+-- treat j and k as gj and gk, unless they have counts (ie. 3k or 5j)
+vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 
 --=============================
 -- Plugins
@@ -95,13 +97,11 @@ local plugin_files = {
    -- others
    "plugins.fswitch",
    "plugins.markdown",
-   "plugins.autopairs",
    "plugins.telescope",
    "plugins.yazi",
    "plugins.vim-code-dark",
    "plugins.lsp",
    "plugins.blink",
-   "plugins.vimbegood",
    "plugins.gitgutter",
    "plugins.treesitter",
    "plugins.multicursor",
