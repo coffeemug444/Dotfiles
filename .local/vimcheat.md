@@ -263,9 +263,8 @@ NB. Most edit commands accept a repeat term [n], eg. `y3j` yanks the next 3 line
  * line completion
    * `\^e` to exit without selecting
 
-**\^r**_[reg]_
-
- * pastes from register [reg]
+**\^y \^e** (insert mode)
+ * copies the character directly above/below the cursor
 
 **\^r=**
 
@@ -292,6 +291,10 @@ NB. Most edit commands accept a repeat term [n], eg. `y3j` yanks the next 3 line
 **:reg**
 
  * lists all current registers and their contents
+
+**\^r**_[reg]_
+
+ * pastes from register [reg]
 
 **:let @r1=@r2**
 
