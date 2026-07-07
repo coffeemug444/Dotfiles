@@ -9,6 +9,12 @@ set -u
 set -o pipefail
 
 emoji="\
+– en dash
+— em dash
+✓ check tick correct
+✔ check tick correct
+✗ cross x incorrect
+✘ cross x incorrect
 ¯\_(ツ)_/¯ shruggie shrug w/e we
 $ dollar
 ¢ cent
