@@ -72,6 +72,9 @@ vim.keymap.set('n', 'C', ":DiffOrig<CR>", opts)
 vim.keymap.set('n', '<leader>w', ":w<CR>", opts)
 vim.keymap.set('n', '<leader>q', ":q<CR>", opts)
 
+vim.cmd("packadd nvim.undotree")
+vim.keymap.set("n", "<leader>u", require("undotree").open)
+
 -- treat j and k as gj and gk, unless they have counts (ie. 3k or 5j)
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
