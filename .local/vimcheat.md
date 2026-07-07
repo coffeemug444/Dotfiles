@@ -363,9 +363,9 @@ NB. Most edit commands accept a repeat term [n], eg. `y3j` yanks the next 3 line
  * enable spell checking
     * `:set spelllang=en_us` to specify languages
 
-**[s ]s**
+**]s [s**
 
- * previous/next misspelling
+ * next/previous misspelling
 
 **=z**
 
@@ -434,13 +434,13 @@ NB. Most edit commands accept a repeat term [n], eg. `y3j` yanks the next 3 line
 
 <h3 id="unimpaired">Unimpaired</h3>
 
-**[e ]e**
+**]e [e**
 
- * exchange current line with [n] lines above/below
+ * exchange current line with [n] lines below/above
 
-**[<space> ]<space**
+<span><b>]&lt;space&gt; [&lt;space&gt;</b></span>
 
- * insert blank line above/below
+ * insert blank line below/above
 
 <h3 id="surround">Surround</h3>
 
