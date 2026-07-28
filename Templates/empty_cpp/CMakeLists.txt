@@ -29,6 +29,9 @@ FetchContent_Declare(
 
 FetchContent_MakeAvailable(fmt range-v3)
 
+add_compile_options(-Wall -Wextra -Wpedantic -fsanitize=undefined -pg) # not using -Werror for hacking around stuff
+add_link_options(-fsanitize=undefined)  # Add sanitizers to the linker stage
+
 add_executable(main src/main.cpp)
 
 target_include_directories(main
@@ -37,7 +40,4 @@ target_include_directories(main
     ${fmt_SOURCE_DIR}/include
 )
 target_link_libraries(main PRIVATE fmt::fmt range-v3)
-
-add_compile_options(-Wall -Wextra -Wpedantic -fsanitize=undefined -pg) # not using -Werror for hacking around stuff
-add_link_options(-fsanitize=undefined)  # Add sanitizers to the linker stage
 
