@@ -111,6 +111,8 @@ fi
 # Then, source plugins and add commands to $PATH
 zplug load
 
+export FZF_DEFAULT_OPTS="--style minimal --color 16 --layout=reverse --height 30% --preview='bat -p --color=always {}'"
+export FZF_CTRL_R_OPTS="--style minimal --color 16 --info inline --no-sort --no-preview" # separate opts for history widget
 source <(fzf --zsh)
 
 # plugin settings
@@ -118,6 +120,9 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#666f70"
 
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
+
+export GROFF_NO_SGR=1
+export MANPAGER="less -R --use-color -Dd+r -Du+b"
 
 export EDITOR=nvim
 export PATH=$PATH:$HOME/.local/bin
