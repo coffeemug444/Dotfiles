@@ -1,11 +1,3 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
-
 ## Options section
 setopt extendedglob                                             # Extended globbing. Allows using regular expressions with *
 setopt nocaseglob                                               # Case insensitive globbing
@@ -85,6 +77,8 @@ export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;36m'
 export LESS=-R
 
+# better prompt (config at ~/.config/starship.toml)
+eval "$(starship init zsh)"
 
 # plugins
 if [ ! -d "$HOME/.zplug" ]; then
@@ -94,8 +88,6 @@ fi
 source $HOME/.zplug/init.zsh
 
 zplug "plugins/git",   from:oh-my-zsh
-zplug "carlcarl/powerline-zsh"
-zplug "romkatv/powerlevel10k", as:theme, depth:1
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
 zplug "zsh-users/zsh-autosuggestions", as:plugin
 zplug "zsh-users/zsh-history-substring-search", as:plugin
@@ -132,6 +124,3 @@ source $HOME/.config/zsh/aliases.zsh
 # all pc-local configs should go here
 # source last to override base config
 source $HOME/.zshrc_local
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
