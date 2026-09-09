@@ -31,7 +31,7 @@ oneline for arch:
 
 
 If you're starting from a fresh install you'll need to do the following:
-1. run `mkdir -p ~/.config/{kitty,nvim/lua/plugins,sway,tmux,waybar,yazi,zsh} ~/.local/bin ~/Templates`
+1. run `mkdir -p ~/.config/{kitty,nvim/lua/plugins,sway,tmux,waybar,yazi,zsh} ~/.local/bin ~/Templates && touch ~/.zshrc_local`
 2. Clone this repo to ~/.dotfiles
 3. `cd` into it and run `stow .`
 4. run `ya pkg add yazi-rs/plugins:smart-enter`
