@@ -14,6 +14,7 @@ $character\
 """
 
 [directory]
+truncation_length = 8
 truncation_symbol = '…/'
 truncate_to_repo = false
 
@@ -21,7 +22,7 @@ truncate_to_repo = false
 symbol = ' '
 
 [git_branch]
-format = '[$symbol$branch(:$remote_branch)]($style) '
+format = '[$symbol$branch(:$remote_branch)](bold 34) '
 
 [username]
 format = '[$user]($style)'
@@ -29,3 +30,9 @@ format = '[$user]($style)'
 [hostname]
 format = '[@](bold blue)[$hostname]($style)'
 
+[git_status]
+modified = '*'
+ahead = '⇡${count}'
+diverged = '⇡${ahead_count}⇣${behind_count}'
+behind = '⇣${count}'
+format = '([\[$modified$ahead_behind\]](bold 208) )'
