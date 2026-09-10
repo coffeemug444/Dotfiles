@@ -39,7 +39,7 @@ format = ' [$user]($style)'
 format = '[@](bold blue)[$hostname]($style)'
 
 [git_status]
-modified = '*'
+modified = '*${count}'
 ahead = '⇡${count}'
 diverged = '⇡${ahead_count}⇣${behind_count}'
 behind = '⇣${count}'
