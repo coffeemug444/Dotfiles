@@ -8,6 +8,7 @@ $git_branch\
 $git_status\
 $fill\
 $cmd_duration\
+$python\
 $username\
 $hostname\
 $line_break\
@@ -26,7 +27,10 @@ symbol = ' '
 format = '[$symbol$branch(:$remote_branch)](bold 34) '
 
 [cmd_duration]
-format = '[$duration](bold blue)'
+format = ' [$duration](bold blue)'
+
+[python]
+format = ' [$virtualenv](bold 33)'
 
 [username]
 format = ' [$user]($style)'
