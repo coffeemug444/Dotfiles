@@ -1,3 +1,30 @@
+source $HOME/.zplug/init.zsh
+
+zplug "plugins/git",   from:oh-my-zsh
+zplug "zsh-users/zsh-syntax-highlighting", defer:2
+zplug "zsh-users/zsh-autosuggestions", as:plugin
+zplug "zsh-users/zsh-history-substring-search", as:plugin
+zplug "romkatv/powerlevel10k", as:theme, depth:1
+
+# Install plugins if there are plugins that have not been installed
+if ! zplug check --verbose; then
+    printf "Install? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    fi
+fi
+
+# Then, source plugins and add commands to $PATH
+zplug load
+
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+source $HOME/.config/zsh/p10k.zsh
+
 ## Options section
 setopt extendedglob                                             # Extended globbing. Allows using regular expressions with *
 setopt nocaseglob                                               # Case insensitive globbing
@@ -77,31 +104,10 @@ export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;36m'
 export LESS=-R
 
-# better prompt (config at ~/.config/starship.toml)
-eval "$(starship init zsh)"
-
 # plugins
 if [ ! -d "$HOME/.zplug" ]; then
    curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
 fi
-
-source $HOME/.zplug/init.zsh
-
-zplug "plugins/git",   from:oh-my-zsh
-zplug "zsh-users/zsh-syntax-highlighting", defer:2
-zplug "zsh-users/zsh-autosuggestions", as:plugin
-zplug "zsh-users/zsh-history-substring-search", as:plugin
-
-# Install plugins if there are plugins that have not been installed
-if ! zplug check --verbose; then
-    printf "Install? [y/N]: "
-    if read -q; then
-        echo; zplug install
-    fi
-fi
-
-# Then, source plugins and add commands to $PATH
-zplug load
 
 export FZF_DEFAULT_OPTS="--style minimal --color 16 --layout=reverse --height 30% --preview='bat -p --color=always {}'"
 export FZF_CTRL_R_OPTS="--style minimal --color 16 --info inline --no-sort --no-preview" # separate opts for history widget
@@ -123,4 +129,4 @@ source $HOME/.config/zsh/aliases.zsh
 
 # all pc-local configs should go here
 # source last to override base config
-source $HOME/.zshrc_local
+[[ ! -f $HOME/.zshrc_local ]] || source $HOME/.zshrc_local
