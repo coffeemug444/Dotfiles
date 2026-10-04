@@ -20,6 +20,33 @@ js = re.sub(r':(-?)\.', r':\g<1>0.', js)
 
 sp500 = json.loads(js)
 
-weights = [item["weight"] for item in sp500]
-chosen = random.choices(sp500, weights=weights, k=1)[0]
+already_bought = [
+    "NTRS",
+    "ETN",
+    "ANET",
+    "AAPL",
+    "DOV",
+    "GOOGL",
+    "LIN",
+    "SMCI",
+    "ASML",
+    "TKR",
+    "AMZN",
+    "MNST",
+    "AMD",
+    "ABT",
+    "CARR",
+    "MA",
+]
+
+blacklist = [
+    "TSLA",
+    "SPCX",
+]
+
+excluded = {s for s in already_bought} | {s for s in blacklist}
+candidates = [item for item in sp500 if item["symbol"] not in excluded]
+
+weights = [item["weight"] for item in candidates]
+chosen = random.choices(candidates, weights=weights, k=1)[0]
 print(f'{chosen["rank"]}. {chosen["symbol"]} - {chosen["name"]}')
