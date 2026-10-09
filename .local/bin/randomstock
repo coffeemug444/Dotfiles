@@ -20,25 +20,6 @@ js = re.sub(r':(-?)\.', r':\g<1>0.', js)
 
 sp500 = json.loads(js)
 
-already_bought = [
-    "NTRS",
-    "ETN",
-    "ANET",
-    "AAPL",
-    "DOV",
-    "GOOGL",
-    "LIN",
-    "SMCI",
-    "ASML",
-    "TKR",
-    "AMZN",
-    "MNST",
-    "AMD",
-    "ABT",
-    "CARR",
-    "MA",
-]
-
 blacklist = [
     "TSLA",
     "SPCX",
