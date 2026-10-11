@@ -25,8 +25,7 @@ blacklist = [
     "SPCX",
 ]
 
-excluded = {s for s in already_bought} | {s for s in blacklist}
-candidates = [item for item in sp500 if item["symbol"] not in excluded]
+candidates = [item for item in sp500 if item["symbol"] not in blacklist]
 
 weights = [item["weight"] for item in candidates]
 chosen = random.choices(candidates, weights=weights, k=1)[0]
