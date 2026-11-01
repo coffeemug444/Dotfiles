@@ -29,4 +29,4 @@ candidates = [item for item in sp500 if item["symbol"] not in blacklist]
 
 weights = [item["weight"] for item in candidates]
 chosen = random.choices(candidates, weights=weights, k=1)[0]
-print(f'{chosen["rank"]}. {chosen["symbol"]} - {chosen["name"]}')
+print(f'{chosen["rank"]}. {chosen["symbol"]} - {chosen["name"]}: {chosen["weight"]:.2f}%')
