@@ -1,22 +1,5 @@
 source $HOME/.zplug/init.zsh
 
-zplug "plugins/git",   from:oh-my-zsh
-zplug "zsh-users/zsh-syntax-highlighting", defer:2
-zplug "zsh-users/zsh-autosuggestions", as:plugin
-zplug "zsh-users/zsh-history-substring-search", as:plugin
-zplug "romkatv/powerlevel10k", as:theme, depth:1
-
-# Install plugins if there are plugins that have not been installed
-if ! zplug check --verbose; then
-    printf "Install? [y/N]: "
-    if read -q; then
-        echo; zplug install
-    fi
-fi
-
-# Then, source plugins and add commands to $PATH
-zplug load
-
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -24,6 +7,27 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 source $HOME/.config/zsh/p10k.zsh
+
+zpi() {
+   if zplug check --verbose; then
+      echo "Nothing to install!"
+   else
+      printf "Install? [y/N]: "
+      if read -q; then
+          echo; zplug install
+      fi
+   fi
+}
+
+
+zplug "plugins/git",   from:oh-my-zsh
+zplug "zsh-users/zsh-syntax-highlighting", defer:2
+zplug "zsh-users/zsh-autosuggestions", as:plugin
+zplug "zsh-users/zsh-history-substring-search", as:plugin
+zplug "romkatv/powerlevel10k", as:theme, depth:1
+
+# Then, source plugins and add commands to $PATH
+zplug load
 
 ## Options section
 setopt extendedglob                                             # Extended globbing. Allows using regular expressions with *
