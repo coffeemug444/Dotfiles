@@ -38,6 +38,7 @@ include "%L"
 <Multi_key> <e> <x> <i> <s> <t>  : "∃"
 <Multi_key> <m> <e> <m>          : "∈"
 <Multi_key> <exclam> <m> <e> <m> : "∉"
+<Multi_key> <e> <q> <v>          : "≡"
 
 # Set relations
 <Multi_key> <s> <u> <b> <s>            : "⊂"
