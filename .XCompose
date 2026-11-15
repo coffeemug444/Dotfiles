@@ -28,17 +28,23 @@ include "%L"
 <Multi_key> <asciicircum> <y> : "ʸ"
 <Multi_key> <asciicircum> <z> : "ᶻ"
 
+# math brackets
+<Multi_key> <bracketleft> <less>     : "⟨"
+<Multi_key> <bracketright> <greater> : "⟩"
+
 # logic symbols
 <Multi_key> <o> <r>           : "∨"
 <Multi_key> <a> <n> <d>       : "∧"
 <Multi_key> <n> <o> <t>       : "¬"
-<Multi_key> <x> <o> <r>       : "⊕ "
+<Multi_key> <x> <o> <r>       : "⊕"
 <Multi_key> <i> <f> <f>       : "↔"
 <Multi_key> <a> <l> <l>       : "∀"
 <Multi_key> <e> <x> <i> <s> <t>  : "∃"
 <Multi_key> <m> <e> <m>          : "∈"
 <Multi_key> <exclam> <m> <e> <m> : "∉"
 <Multi_key> <e> <q> <v>          : "≡"
+<Multi_key> <c> <o> <n> <t> <s>        : "∋"
+<Multi_key> <exclam> <c> <o> <n> <t>   : "∌"
 
 # Set relations
 <Multi_key> <s> <u> <b> <s>            : "⊂"
@@ -49,8 +55,6 @@ include "%L"
 <Multi_key> <s> <u> <p> <e>            : "⊇"
 <Multi_key> <exclam> <s> <u> <p> <s>   : "⊅"
 <Multi_key> <exclam> <s> <u> <p> <e>   : "⊉"
-<Multi_key> <c> <o> <n> <t> <s>        : "∋"
-<Multi_key> <exclam> <c> <o> <n> <t>   : "∌"
 
 # Set operations
 <Multi_key> <u> <n> <i>                : "∪"
@@ -65,3 +69,7 @@ include "%L"
 # Big operators
 <Multi_key> <b> <u> <n> <i>            : "⋃"
 <Multi_key> <b> <i> <n> <t>            : "⋂"
+
+<Multi_key> <t> <r> <u> <e>   : "⊤"
+<Multi_key> <f> <a> <l> <s>   : "⊥"
+<Multi_key> <i> <m> <p> <l>   : "→"
