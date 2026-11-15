@@ -28,6 +28,8 @@ include "%L"
 <Multi_key> <asciicircum> <y> : "ʸ"
 <Multi_key> <asciicircum> <z> : "ᶻ"
 
+<Multi_key> <d> <o> <t> : "⋅"
+
 # math brackets
 <Multi_key> <bracketleft> <less>     : "⟨"
 <Multi_key> <bracketright> <greater> : "⟩"
