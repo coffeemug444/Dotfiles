@@ -28,13 +28,18 @@ include "%L"
 <Multi_key> <asciicircum> <y> : "ʸ"
 <Multi_key> <asciicircum> <z> : "ᶻ"
 
-<Multi_key> <d> <o> <t> : "⋅"
+# Generic math symbols
+<Multi_key> <d> <o> <t>     : "⋅"
+<Multi_key> <s> <q> <r> <t> : "√"
+<Multi_key> <s> <u> <m>     : "∑"
+<Multi_key> <p> <r> <o> <d> : "∏"
+<Multi_key> <i> <n> <f>     : "∞"
 
-# math brackets
+# Math brackets
 <Multi_key> <bracketleft> <less>     : "⟨"
 <Multi_key> <bracketright> <greater> : "⟩"
 
-# logic symbols
+# Logic symbols
 <Multi_key> <o> <r>           : "∨"
 <Multi_key> <a> <n> <d>       : "∧"
 <Multi_key> <n> <o> <t>       : "¬"
