@@ -3,12 +3,9 @@ set -e
 set -u
 set -o pipefail
 
-#!/usr/bin/env bash
-set -e
-set -u
-set -o pipefail
-
 emoji="\
+∴ therefore logic
+∵ because since logic
 – en dash
 — em dash
 ✓ check tick correct
@@ -1941,11 +1938,8 @@ $ dollar
 🏴󠁧󠁢󠁳󠁣󠁴󠁿 flag scotland flag scotland
 🏴󠁧󠁢󠁷󠁬󠁳󠁿 flag wales flag wales"
 
-if [[ $# == 0 ]]; then
-	echo "$emoji" | awk '{print $1}'
-elif [[ $# == 1 ]]; then
-	echo "$emoji" | grep -i --color=never "$@" | awk '{print $1}'
-else
-	exit 1
-fi
-
+printf '%s\n' "$emoji" |
+  awk '{e=$1; $1=""; printf "%s\033[2m%s\033[0m\n", e, $0}' |
+  fzf --ansi --delimiter=' ' --nth=2.. --no-hscroll \
+      --query="${1:-}" --prompt='emoji> ' |
+  awk '{print $1}'
